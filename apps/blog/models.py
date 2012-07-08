@@ -131,7 +131,7 @@ class Picture(models.Model):
         #   PNG - transparent drawing + background (save as JPG)
 
         ratio = mirror.size[1] / (float)(mirror.size[0])
-        widths = { 300, 500, 600, 1000 }
+        widths = [ 300, 500, 600, 1000 ]
 
         if ext.lower() == '.jpg':
             mirror.save(filename, "JPEG", quality = 95)
