@@ -7,7 +7,8 @@ class LatestArticlesFeed(Feed):
     title = "čarabaňa.cz"
     description = "Nejnovější články"
     author_name = "Martin Marek"
-    link = "/feeds/"
+    link = "http://carabana.cz/feeds/"
+    feed_url = "http://carabana.cz/feeds/"
     description_template = 'feeds/articles_description.html'
         
     def items(self):
