@@ -198,7 +198,7 @@ class Article(models.Model):
     slug            = models.SlugField(max_length = 100, unique = True, help_text = "Maximum 100 characters, must be unique") # unique URL
     status          = models.IntegerField(choices = ARTICLE_STATUS_CHOICES, default = ARTICLE_STATUS_DRAFT) # article status
     date_published  = models.DateTimeField(default = datetime.now) # used for showing and sorting
-    year_published  = models.IntegerField(default = datetime.year) # hidden, used for grouping
+    year_published  = models.IntegerField(default = 0) # hidden, used for grouping
     date_modified   = models.DateTimeField(default = datetime.now) # last modification
     tags            = models.ManyToManyField(Tag, help_text = "Assigned tags") # assigned tags
     perex           = models.TextField(blank = False) # text perex (source)

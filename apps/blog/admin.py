@@ -30,8 +30,8 @@ class ArticleAdmin(admin.ModelAdmin):
                 elif obj.status == Article.ARTICLE_STATUS_HIDDEN:
                     obj.status = Article.ARTICLE_STATUS_DRAFT
 
-            obj.year_published = obj.date_published.year
-            obj.date_modified = datetime.now()
+        obj.year_published = obj.date_published.year
+        obj.date_modified = datetime.now()
         super(ArticleAdmin, self).save_model(request, obj, form, change)
 
 class PictureAdmin(admin.ModelAdmin):
