@@ -1,0 +1,20 @@
+/* Retina media query.
+   Overrides styles for devices with a
+   device-pixel-ratio of 2+, such as iPhone 4.  */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 2)
+{
+  body, #bg-top, #bg-bottom { @include background-size(50px auto); }
+  #bg-top { background-image: url('#{$mediapath}/img/background-top_2x.jpg'); }
+  #bg-bottom { background-image: url('#{$mediapath}/img/background-bottom_2x.jpg'); }
+
+  #{$less-grid-element}
+  {
+    $booth-width: (68px * 3) + (24px * 2) - 2.9 * $col-padding;
+  
+    header #ofca { @include background-size(652px auto); background-image: url('#{$mediapath}/img/ofca-big_2x.png'); }
+    article .booth { @include background-size($booth-width auto); background-image: url('#{$mediapath}/img/booth_2x.png'); }
+    footer .carabana { @include background-size(160px auto); background-image: url('#{$mediapath}/img/carabana_2x.png'); }
+  }
+}
+

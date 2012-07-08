@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "blog.tag",
+        "fields": {
+            "name": "dev",
+            "slug": "dev"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "blog.tag",
+        "fields": {
+            "name": "art",
+            "slug": "art"
+        }
+    }
+]

@@ -1,0 +1,43 @@
+/* Tablet Layout: 768px.
+ * Gutters: 24px.
+ * Outer margins: 28px.
+ * Inherits styles from: Default Layout.  */
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+  #{$less-grid-element}
+  {
+    @include grid(8);
+    
+    header #carabana-logo { @include column(8, true); }
+    header #carabana-logo #city { left: 133px; }
+    header #carabana-logo #tube { left: 297px; }
+    header #carabana-logo #village { left: 371px; }
+    header #carabana-logo #sun { left: 434px; }
+
+    article
+    {
+      .main { margin: 3em 92px 4em 92px; }
+      .wide
+      {
+        @include section(8, $col-padding, $col-padding, true); margin: 3em 0 0 0;
+        .framed, .tilted { margin-left: $col-width; }
+        .youtube, .document { margin-left: 1.5 * $col-padding; }
+      }
+      .gallery { @include section(8, 5, 5, true); margin-top: 4em; a:nth-of-type(4) { display: none; } }
+
+      .column
+      {
+        @include section(3.8, $col-padding, 0, false); clear: none; &:nth-of-type(2n+1) { clear: both; }
+        img { width: 300px; }
+      }
+
+      .lastcolumn { display: block; }
+      .tags { @include section(8, $col-padding, $col-padding, true); }
+
+      pre { @include section(7.4, $col-padding, $col-padding, false); padding: 2em; }
+    }
+    
+  }
+}
+

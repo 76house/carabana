@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load twitterize %}
+{% load truncate_paragraph %}
+{% load tag_list %}
+
+
+{% block article %}
+    <div class="main">
+
+      <!-- MAIN CONTENT begin ====================================== --> 
+
+      {% if article %}
+          <a href="{{ article.get_absolute_url }}"><h2>{{ article.title|safe }}</h2></a>
+          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}</div>
+          {{ article.perex_html|safe }}
+          <p class="center"><a class="squared" href="{{ article.get_absolute_url }}">CELÝ ČLÁNEK »</a></p>
+      {% else %}
+          <h2>Béé, nic tady není!</h2>
+          <div class="date">&nbsp;</div>
+          <p>&nbsp;</p>
+      {% endif %}
+
+      <!-- MAIN CONTENT end ======================================== --> 
+
+    </div>
+{% endblock article %}
+            
+{% block booth %}
+    <aside class="booth"><h3>/ z ptačí budky /</h3></aside>
+
+    <aside>
+      
+      <!-- SIDEBAR begin =========================================== --> 
+
+      <div class="small">
+    {% if tweets %}
+        {% for t in tweets %}
+        <p><span class="bird"></span> {{ t.text|urlize|twitterize }}</p>
+        <div class="date">{{ t.date|naturalday:"j. E" }}</div>
+        {% endfor %}
+    {% else %}
+        <p>Pardón, žádné tvíty :(</p>
+    {% endif %}
+      </div>
+      
+      <p class="center"><a href="http://twitter.com/76house" title="@76house">Více na <b>Twitteru</b> »</a></p>
+      
+      <!-- SIDEBAR end ============================================= --> 
+
+    </aside>
+{% endblock booth %}
+
+{% block gallery %}
+    {% if photos %}
+    <div class="gallery">
+
+      <!-- GALLERY begin =========================================== --> 
+
+      <div class="content">
+    {% for p in photos %}
+        <a href="{{ p.1 }}"><img src="{{ p.0 }}" alt="Flickr" title="{{ p.2 }}"></a>
+    {% endfor %}
+        <p>&nbsp;</p>
+      </div>
+
+      <!-- GALLERY end ============================================= --> 
+
+    </div>
+    {% endif %}
+{% endblock gallery %}
+
+{% block columns %}
+    {% if articles %}
+    <!-- COLUMNS begin ============================================= --> 
+
+    {% for a in articles %}
+    <a class="column" href="{{ a.get_absolute_url }}">
+      <h2>{{ a.title|safe }}</h2>
+        {{ a.perex_html|truncate_paragraph|safe }}
+    </a>
+    {% endfor %}
+
+    <div class="column">
+      <p class="capital indent"><br/>» DALŠÍ ČLÁNKY<br/><a class="rounded btn-chrono" href="/chrono" title="Články dle data"></a> <a class="rounded btn-tag" href="/tag" title="Články dle tagů"></a></p>
+    </div>
+
+    <!-- COLUMNS end =============================================== --> 
+    {% endif %}
+{% endblock columns %}
+
+
