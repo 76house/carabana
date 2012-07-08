@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from blog.views import *
 from blog.feeds import LatestArticlesFeed
 
@@ -18,6 +19,6 @@ urlpatterns = patterns('',
 
     url(r'^feeds/$', LatestArticlesFeed()),
 
-) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) + staticfiles_urlpatterns()
 
 
