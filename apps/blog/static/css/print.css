@@ -112,6 +112,8 @@ footer { position: relative; text-align: left; line-height: 1.4em; letter-spacin
 
 input { color: #b02c2c; letter-spacing: 0.06em; word-spacing: 0.15em; }
 
+h1 { display: none; }
+
 h2, h3, h4 { font-weight: normal; font-family: Gentium, "URW Palladio L", Palladio, "Palatino Linotype", Palatino, "Lido ST", Baskerville, Cambria, serif; line-height: 1.35em; color: #b02c2c; }
 
 h2 { font-size: 1.8em; letter-spacing: 0.001em; word-spacing: 0.15em; padding-bottom: 0.1em; }

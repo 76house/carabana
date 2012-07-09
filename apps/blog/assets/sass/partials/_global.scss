@@ -138,6 +138,7 @@ article { position: relative; float: left; display: block; }
 footer  { position: relative; text-align: left; line-height: 1.4em; letter-spacing: 0.15em; font-size: 0.75em; _font-size: 75%; color: $color-text-small; }
 input   { color: $color-title; letter-spacing: 0.06em; word-spacing: 0.15em; }
 
+h1 { display: none; }
 h2, h3, h4 { font-weight: normal; font-family: $font-stack; line-height: 1.35em; color: $color-title; }
 h2 { font-size: 1.8em; letter-spacing: 0.001em; word-spacing: 0.15em; padding-bottom: 0.1em;  }
 h3 { font-size: 1.3em; letter-spacing: 0.003em; word-spacing: 0.05em; padding: 1em 0 0.5em 0; }
