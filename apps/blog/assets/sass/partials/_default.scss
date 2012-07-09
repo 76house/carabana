@@ -74,6 +74,7 @@ $sprites-retina: sprite-map("icons2x/*.png");
 header
 {
   width: 100%; min-width: 100%; text-align: left; overflow: hidden;
+  h1 { display: none; }
   #topnav { width: 100%; min-width: 100%; height: 60px; }
   #carabana-logo-link { height: $carabana-logo-height; display: block; }
   #carabana-logo
