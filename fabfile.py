@@ -10,3 +10,8 @@ def deploy():
 def restart():
    run(' ~/init/carabana restart')
 
+def stop():
+   run(' ~/init/carabana stop')
+
+def start():
+   run(' ~/init/carabana start')
