@@ -33,8 +33,9 @@ def view_article(request, slug):
     # try to get articles with the same tag; optionally get the latest articles with any tags
 
     article = get_object_or_404(Article, slug = slug, status__in = [ Article.ARTICLE_STATUS_PUBLIC, Article.ARTICLE_STATUS_DRAFT])
+    is_draft = False
     if article:
-        if (article.status == Article.ARTICLE_STATUS_DRAFT):
+        if article.status == Article.ARTICLE_STATUS_DRAFT:
             is_draft = True
     is_similar = True
     articles = Article.public.filter(tags__in = article.tags.all).exclude(slug = article.slug)
