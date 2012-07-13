@@ -34,7 +34,8 @@ def view_article(request, slug):
 
     article = get_object_or_404(Article, slug = slug, status__in = [ Article.ARTICLE_STATUS_PUBLIC, Article.ARTICLE_STATUS_DRAFT])
     if article:
-        is_draft = (article.status == Article.ARTICLE_STATUS_DRAFT)
+        if (article.status == Article.ARTICLE_STATUS_DRAFT):
+            is_draft = True
     is_similar = True
     articles = Article.public.filter(tags__in = article.tags.all).exclude(slug = article.slug)
     if not articles:
