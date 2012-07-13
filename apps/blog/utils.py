@@ -8,12 +8,15 @@ from django.conf import settings
 
 # Convert Markdown markup to pure HTML
 # and post-process the code
-def process_markup(source):
+def process_markup(source, pure_text = False):
 
     # markdown
     result = markdown(source, ['codehilite'])
 
     # -- text post-processing --
+    
+    # insert non-breaking spaces after some Czech single-letter prepositions
+    result = re.sub(' (?P<letter>[kosuvzKOSUVZ]) ', ' \g<letter>&nbsp;', result)
 
     # convert [.my_class] to class="my_class"
     result = re.sub('>\[\.(?P<class>[a-zA-Z]([ \w-]+))\]', ' class="\g<class>">', result)
@@ -24,7 +27,10 @@ def process_markup(source):
 
     # convert [floatbox]...[/floatbox] to <div class="floatbox"> ... </div>
     result = re.sub('\[floatbox\]', '<div class="floatbox">', result)
-    result = re.sub('\[\/floatbox\]', '</div>', result)
+    result = re.sub('\[\/floatbox\]', '</div><!--floatbox-->', result)
+    
+    # convert [download] to <a class="floatbox"> ... </a>
+    result = re.sub('\[download (?P<href>([^ ]+)) \| (?P<title>([^\]]+))\]', '<a href="\g<href>" class="download"><span class="btn-download"></span> \g<title></a>', result)
     
     # convert [share] to <div class="share"> ... </div>
     result = re.sub('\[share\]',
@@ -38,7 +44,7 @@ def process_markup(source):
     result = re.sub('src="img/', 'src="' + settings.STATIC_URL + 'img/', result)
     result = re.sub('src="picture/', 'src="' + settings.MEDIA_URL + 'picture/', result)
     result = re.sub('<p><img (?P<img>(.+))></p>', '<img \g<img>>', result)
-    
+
     # embed [flickr] object
     result = re.sub('<p>\[flickr (?P<id>([\w\/]+)) \| (?P<src>([^ ]+)) \| (?P<title>([^\]]+))\]<\/p>',
         '<a href="https://www.flickr.com/photos/\g<id>/" title="\g<title>"><img class="tilted" src="\g<src>" alt="\g<title>"></a>', result)

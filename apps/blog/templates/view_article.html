@@ -5,12 +5,18 @@
 
 {% block title %}{% if article %}{{ article.title|safe }} / {% endif %}čarabaňa.cz{% endblock title %}
 
+{% if is_draft %}
+  {% block tab %}<span class="separator"></span> <a href="/admin/blog/article/{{ article.id }}">DRAFT</a>{% endblock tab %}
+{% endif %}
+
+
 {% block article %}
     <div class="main wide">
 
       <!-- MAIN CONTENT begin ====================================== --> 
 
       {% if article %}
+
           <h2>{{ article.title|safe }}</h2>
           <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}</div>
           {{ article.perex_html|safe }}

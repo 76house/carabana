@@ -32,7 +32,9 @@ def view_article(request, slug):
 
     # try to get articles with the same tag; optionally get the latest articles with any tags
 
-    article = get_object_or_404(Article, slug = slug, status = Article.ARTICLE_STATUS_PUBLIC)
+    article = get_object_or_404(Article, slug = slug, status__in = [ Article.ARTICLE_STATUS_PUBLIC, Article.ARTICLE_STATUS_DRAFT])
+    if article:
+        is_draft = (article.status == Article.ARTICLE_STATUS_DRAFT)
     is_similar = True
     articles = Article.public.filter(tags__in = article.tags.all).exclude(slug = article.slug)
     if not articles:
@@ -41,6 +43,7 @@ def view_article(request, slug):
     
     return render_to_response('view_article.html', {
         'article': article,
+        'is_draft' : is_draft,
         'articles' : articles,
         'is_similar' : is_similar,
     }, context_instance=RequestContext(request))

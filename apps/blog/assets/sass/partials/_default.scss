@@ -44,7 +44,7 @@ $sprites-retina: sprite-map("icons2x/*.png");
 }
 
 
-@each $icon in search, rss, tag, chrono, bird, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag
+@each $icon in search, rss, tag, chrono, bird, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
 {
   .#{$icon} { @include sprite-background($icon); display: inline-block; }
 }
@@ -107,6 +107,7 @@ article
     }
 
     .tilted { @extend .framed; }
+    .floatbox { display: none; }
   }
   
   .wide
@@ -116,6 +117,7 @@ article
     .framed { margin-left: $col-width + $col-padding; }
     .tilted { @extend .framed; }
     .youtube, .document { margin-left: 2.5 * $col-padding; }
+    .floatbox { display: block; }
   }
 
   .booth
@@ -151,6 +153,7 @@ article
     &:nth-of-type(3n+1) { clear: both; }
 
     img { width: 250px; margin: 0.1em auto 1em auto; }
+    .floatbox { display: none; }
   }
   
   .lastcolumn { display: none; }
@@ -177,6 +180,11 @@ article
     h3, p { color: $color-text-label; }
     p { font-size: 0.9em; line-height: 1.8em; }
     h3 { font-weight: bold; text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4); }
+    a
+    {
+      &, &:link, &:visited { border: none; color: $color-title; background-color: $color-text-label; padding: 0.2em 0.5em; font-size: 1.3em; border-radius: 5px; box-shadow: 0 0 6px rgba(255, 255, 255, 0.5); }
+      &:hover, &:active { color: $color-text-label; background-color: $color-title; border: 1px solid #fdd; box-shadow: 0 0 6px #fff; cursor: pointer; }
+    }
   }
   
   .share

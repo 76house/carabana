@@ -256,7 +256,7 @@ class Article(models.Model):
             self.body = self.body.replace(picture_tag, tag_replace)
 
         # convert Markdown-compatible text markup to pure HTML
-        self.perex_html = process_markup(self.perex)
+        self.perex_html = process_markup(self.perex, True)
         self.body_html = process_markup(self.body)
         super(Article, self).save(force_insert, force_update, **kwargs)
 
