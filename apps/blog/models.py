@@ -206,6 +206,7 @@ class Article(models.Model):
     perex_html      = models.TextField(editable = False, blank = True) # text perex (HTML generated from source)
     body_html       = models.TextField(editable = False, blank = True) # text body (HTML generated from source)
     drawing         = models.CharField(max_length = 100) # 'flyer picture' url
+    enable_comments = models.BooleanField()
     
     # managers to provide all / only published articles
     objects         = models.Manager()
