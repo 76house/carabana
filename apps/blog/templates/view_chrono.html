@@ -7,7 +7,7 @@
     {% if years %}
     <!-- COLUMNS begin ============================================= --> 
 
-    {% for key, value in years.items reversed %}
+    {% for key, value in years reversed %}
 
     {% if not slug %}<a href="/chrono/{{ key }}">{% endif %}<div class="label">{{ key }}</div>{% if not slug %}</a>{% endif %}
 

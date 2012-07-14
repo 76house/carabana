@@ -7,7 +7,7 @@
     {% if tags %}
     <!-- COLUMNS begin ============================================= --> 
 
-    {% for key, value in tags.items %}
+    {% for key, value in tags %}
 
     {% if not slug %}<a href="/tag/{{ key }}">{% endif %}<div class="label">#{{ value.0.name }}</div>{% if not slug %}</a>{% endif %}
 

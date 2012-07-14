@@ -73,7 +73,7 @@ def view_tag(request, slug = ""):
 
     return render_to_response('view_tag.html', {
         'slug' : slug,
-        'tags': tags,
+        'tags': sorted(tags.iteritems()),
     }, context_instance=RequestContext(request))
 
 
@@ -98,7 +98,7 @@ def view_chrono(request, slug = ""):
 
     return render_to_response('view_chrono.html', {
         'slug' : slug,
-        'years': years,
+        'years': sorted(years.iteritems()),
     }, context_instance=RequestContext(request))
 
 
