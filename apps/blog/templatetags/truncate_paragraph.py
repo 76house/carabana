@@ -8,6 +8,8 @@ register = template.Library()
 @register.filter
 def truncate_paragraph(value):
     data = unicode(value)
+    data = re.sub('<img (.+)>', '', data)
+    data = re.sub('<a (.+)</a>', '', data)
 
     i = data.find('</p>')
         
