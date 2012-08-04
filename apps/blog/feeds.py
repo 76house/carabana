@@ -12,7 +12,7 @@ class LatestArticlesFeed(Feed):
     description_template = 'feeds/articles_description.html'
         
     def items(self):
-        return Article.public.all()[:10]
+        return Article.public.order_by('-date_published')[:10]
     
     def item_title(self, item):
         return item.title
