@@ -7,7 +7,7 @@ class LatestArticlesFeed(Feed):
     title = "čarabaňa.cz"
     description = "Nejnovější články"
     author_name = "Martin Marek"
-    link = "http://carabana.cz/feeds/"
+    link = "http://carabana.cz/"
     feed_url = "http://carabana.cz/feeds/"
     description_template = 'feeds/articles_description.html'
         

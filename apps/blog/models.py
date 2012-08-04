@@ -247,7 +247,7 @@ class Article(models.Model):
         text = re.sub('<img (.+)>', '', self.perex_html)
         text = re.sub('<a (.+)>(?P<link>(.+))</a>', '\g<link>', text)
         if self.drawing != "":
-            text = '<img src="http://carabana.cz/%s%s"> %s' % (settings.MEDIA_URL, self.drawing, text)
+            text = '<img src="http://carabana.cz%s%s"> %s' % (settings.MEDIA_URL, self.drawing, text)
         return text
 
     def save(self, force_insert = False, force_update = False, **kwargs):
