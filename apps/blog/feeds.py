@@ -18,5 +18,8 @@ class LatestArticlesFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.description    
+        return item.description
+
+    def item_pubdate(self, item):
+        return item.date_published
 

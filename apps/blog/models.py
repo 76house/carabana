@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import os
+import re
 from PIL import Image, ImageEnhance
 import PIL.ExifTags
 from datetime import datetime
@@ -239,7 +240,12 @@ class Article(models.Model):
 
     # URL of assigned drawing image (transparent PNG inserted to perex / body and named 'drawing')
     def drawing_url(self):
-        return '%s/%s' % (settings.MEDIA_URL, self.drawing)
+        return '%s%s' % (settings.MEDIA_URL, self.drawing)
+
+    # item description for RSS feed
+    def rss_text(self):
+        text = re.sub('<img (.+)>', '', self.perex_html)
+        return text
 
     def save(self, force_insert = False, force_update = False, **kwargs):
 

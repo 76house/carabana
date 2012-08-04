@@ -46,7 +46,7 @@ def view_article(request, slug):
     return render_to_response('view_article.html', {
         'article': article,
         'is_draft' : is_draft,
-        'articles' : articles,
+        'articles' : articles[:6],
         'is_similar' : is_similar,
     }, context_instance=RequestContext(request))
 
