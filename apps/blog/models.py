@@ -245,7 +245,7 @@ class Article(models.Model):
     # item description for RSS feed
     def rss_text(self):
         text = re.sub('<img (.+)>', '', self.perex_html)
-        text = re.sub('<a (.+)</a>', '', text)
+        text = re.sub('<a (.+)>(?P<link>(.+))</a>', '\g<link>', text)
         return text
 
     def save(self, force_insert = False, force_update = False, **kwargs):
