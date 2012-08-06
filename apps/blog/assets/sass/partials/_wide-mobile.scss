@@ -21,6 +21,7 @@
       }
       .wide
       {
+        .drawing { margin-left: $col-padding; }
         .youtube { width: 320px; height: 180px; margin-left: $col-padding; }
         .document { width: 320px; height: 266px; margin-left: $col-padding; }
       }

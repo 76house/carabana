@@ -100,7 +100,7 @@ a.rounded:hover, a.rounded:active, input.rounded:hover, input.rounded:active { c
 /* images and objects */
 .main img { width: 90%; max-width: 500px; margin: 1.5em 0.5em 2.5em 0.5em; }
 
-.drawing img { width: 500px; }
+.drawing { width: 500px; }
 
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
 
@@ -217,7 +217,7 @@ article .main .framed img, article .main .youtube img, article .main .document i
 article .main .floatbox { display: none; }
 article .wide { width: 712px; padding: 0 92px 0 92px; margin: 3em auto 0 auto; }
 article .wide + .main { margin-top: 0; }
-article .wide .framed, article .wide .youtube, article .wide .document, article .wide .main .tilted, article .main .wide .tilted, article .wide .tilted { margin-left: 92px; }
+article .wide .framed, article .wide .youtube, article .wide .document, article .wide .main .tilted, article .main .wide .tilted, article .wide .tilted, article .wide .drawing { margin-left: 104px; }
 article .wide .youtube, article .wide .document { margin-left: 60px; }
 article .wide .floatbox { display: block; }
 article .booth { width: 204px; padding: 0 24px 0 24px; margin-right: 24px; height: 10.7em; background: url("../img/booth.png") top right no-repeat; }
@@ -243,7 +243,7 @@ article .floatbox p { font-size: 0.9em; line-height: 1.8em; }
 article .floatbox h3 { font-weight: bold; text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4); }
 article .floatbox a, article .floatbox a:link, article .floatbox a:visited { border: none; color: #b02c2c; background-color: white; padding: 0.2em 0.5em; font-size: 1.3em; border-radius: 5px; box-shadow: 0 0 6px rgba(255, 255, 255, 0.5); }
 article .floatbox a:hover, article .floatbox a:active { color: white; background-color: #b02c2c; border: 1px solid #fdd; box-shadow: 0 0 6px #fff; cursor: pointer; }
-article .share { float: right; margin: 3em 0 1em 2em; padding: 0.7em 0.2em 0.3em 1em; background-color: rgba(0, 0, 0, 0.05); box-shadow: 0 0 4px rgba(176, 44, 44, 0.3); }
+article .share { width: 112px; padding: 0 24px 0 24px; margin: 2em auto 1em auto; padding: 0.7em; background-color: rgba(0, 0, 0, 0.05); box-shadow: 0 0 4px rgba(176, 44, 44, 0.3); }
 article pre { width: 645.6px; padding: 0 24px 0 24px; margin-right: 24px; font-size: 0.9em; margin: 2em 0; padding: 2em; background-color: rgba(255, 255, 255, 0.3); box-shadow: 0 0 8px rgba(100, 100, 100, 0.3); }
 
 /* --- footer */
@@ -285,6 +285,7 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
   #wrapper article .main .framed img, #wrapper article .main .youtube img, #wrapper article .main .document img, #wrapper article .main .tilted img, #wrapper article .main .wide .tilted img, #wrapper article .wide .main .tilted img { opacity: 0; }
   #wrapper article .main .date { font-size: 0.8em; }
   #wrapper article .main .drawing img { width: 250px; margin-left: 0; }
+  #wrapper article .wide .drawing { margin-left: 12px; }
   #wrapper article .wide .youtube { width: 232px; height: 130px; margin-left: 2; }
   #wrapper article .wide .document { width: 232px; height: 200px; margin-left: 2; }
   #wrapper article .main, #wrapper article .column, #wrapper article .errorcolumn, #wrapper article .booth, #wrapper article aside { width: 252px; padding: 0 0 0 0; }
@@ -299,7 +300,6 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
   #wrapper article .gallery { width: 242px; padding: 0 5 0 5; margin-top: 4em; }
   #wrapper article .gallery img { margin: 1.8em 0.7em 0 0.7em; }
   #wrapper article .floatbox { width: 204px; padding: 0 24px 0 24px; }
-  #wrapper article .share { width: 112px; padding: 0 24px 0 24px; float: none; padding: 0.7em; margin: 2em auto 1em auto; }
   #wrapper article pre { width: 176.4px; padding: 0 24px 0 24px; padding: 2em; font-size: 0.9em; }
   #wrapper footer { width: 252px; padding: 0 0 0 0; text-align: center; margin-top: 6em; padding: 1em 0; }
   #wrapper footer .ofca-xicht { display: none; }
@@ -312,6 +312,7 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
   #wrapper header #carabana-logo { width: 480px; margin-left: -22px; }
   #wrapper article .main { width: 388px; padding: 0 24px 0 24px; }
   #wrapper article .main .drawing img { width: 338px; }
+  #wrapper article .wide .drawing { margin-left: 24px; }
   #wrapper article .wide .youtube { width: 320px; height: 180px; margin-left: 24px; }
   #wrapper article .wide .document { width: 320px; height: 266px; margin-left: 24px; }
   #wrapper article .column, #wrapper article .errorcolumn, #wrapper article .booth, #wrapper article aside { width: 292px; padding: 0 72px 0 72px; }

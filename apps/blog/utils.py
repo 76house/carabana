@@ -44,6 +44,7 @@ def process_markup(source, pure_text = False):
     result = re.sub('src="img/', 'src="' + settings.STATIC_URL + 'img/', result)
     result = re.sub('src="picture/', 'src="' + settings.MEDIA_URL + 'picture/', result)
     result = re.sub('<p><img (?P<img>(.+))></p>', '<img \g<img>>', result)
+    result = re.sub(' alt="drawing" ', ' class="drawing" ', result)
 
     # embed [flickr] object
     result = re.sub('<p>\[flickr (?P<id>([\w\/]+)) \| (?P<src>([^ ]+)) \| (?P<title>([^\]]+))\]<\/p>',

@@ -35,6 +35,7 @@
       }
       .wide
       {
+        .drawing { margin-left: $col-padding / 2; }
         .youtube { width: 232px; height: 130px; margin-left: 2; }
         .document { width: 232px; height: 200px; margin-left: 2; }
       }
@@ -57,7 +58,6 @@
 
       .gallery { @include section(3, 5, 5, true); margin-top: 4em; img { margin: 1.8em 0.7em 0 0.7em; } }
       .floatbox { @include section(3, $col-padding, $col-padding, true); }
-      .share { @include section(2, $col-padding, $col-padding, true); float: none; padding: 0.7em; margin: 2em auto 1em auto; }
       pre { @include section(2.7, $col-padding, $col-padding, true); padding: 2em; font-size: 0.9em; }
     }
     

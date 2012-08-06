@@ -126,7 +126,7 @@ a.rounded, input.rounded
 /* images and objects */
 
 .main img { width: 90%; max-width: 500px; margin: $obj-margin; }
-.drawing img { width: 500px; }
+.drawing { width: 500px; }
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
 .youtube { @extend .framed; width: 560px; height: 315px; }
 .document { @extend .framed; width: 560px; height: 446px; }
