@@ -10,7 +10,8 @@ import flickrapi
 def latest_tweets(request):
     tweets = cache.get('tweets')
 
-    #return { "tweets" : () } # disable this time-consuming functionality (useful for testing)
+    if settings.DEBUG:
+      return { "tweets" : () } # disable this time-consuming functionality (useful for testing)
 
     if tweets:
         return {"tweets": tweets}
@@ -29,7 +30,8 @@ def latest_tweets(request):
 def latest_photos(request):
     photos = cache.get('photos')
 
-    #return { "photos" : () } # disable this time-consuming functionality (useful for testing)
+    if settings.DEBUG:
+      return { "photos" : () } # disable this time-consuming functionality (useful for testing)
 
     if photos:
         return {"photos": photos}

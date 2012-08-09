@@ -39,14 +39,14 @@ def view_article(request, slug):
             is_draft = True
     is_similar = True
     articles = Article.public.filter(tags__in = article.tags.all).exclude(slug = article.slug)
-    if not articles:
+    if not articles or articles.count() < 4:
         is_similar = False
-        articles = Article.public.exclude(slug = article.slug)
+        articles = articles | Article.public.exclude(tags__in = article.tags.all)
     
     return render_to_response('view_article.html', {
         'article': article,
         'is_draft' : is_draft,
-        'articles' : articles[:6],
+        'articles' : articles[:4],
         'is_similar' : is_similar,
     }, context_instance=RequestContext(request))
 
