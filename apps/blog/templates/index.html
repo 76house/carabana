@@ -75,8 +75,9 @@
     <!-- COLUMNS begin ============================================= --> 
 
     {% for a in articles %}
-    <a class="column" href="{{ a.get_absolute_url }}">
+    <a class="{% if forloop.counter == 4 %}lastcolumn {% endif %}column" href="{{ a.get_absolute_url }}">
       <h2>{{ a.title|safe }}</h2>
+        {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
         {{ a.perex_html|truncate_paragraph|safe }}
     </a>
     {% endfor %}

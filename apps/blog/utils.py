@@ -32,14 +32,6 @@ def process_markup(source, pure_text = False):
     # convert [download] to <a class="floatbox"> ... </a>
     result = re.sub('\[download (?P<href>([^ ]+)) \| (?P<title>([^\]]+))\]', '<a href="\g<href>" class="download"><span class="btn-download"></span> \g<title></a>', result)
     
-    # convert [share] to <div class="share"> ... </div>
-    result = re.sub('\[share\]',
-        '<div class="share">\
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>\
-<div><a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" <a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" data-size="large">Tweet</a></div>\
-</div>\
-', result)
-
     # adjust image source (img in /static directory, picture in  /media directory)
     result = re.sub('src="img/', 'src="' + settings.STATIC_URL + 'img/', result)
     result = re.sub('src="picture/', 'src="' + settings.MEDIA_URL + 'picture/', result)
