@@ -39,12 +39,14 @@ def view_article(request, slug):
             is_draft = True
     is_similar = True
 
+    # other articlers: 2 similar + 1 newer + 2 older
     a_tag = list(Article.public.filter(tags__in = article.tags.all).exclude(slug = article.slug)[:2])
     if not a_tag or len(a_tag) < 2:
         is_similar = False
     
-    a_other = list(Article.public.exclude(tags__in = article.tags.all)[:4])
-    articles = a_tag + a_other
+    a_newer = list(Article.public.filter(date_published__gt = article.date_published).exclude(tags__in = article.tags.all)[:1])
+    a_older = list(Article.public.filter(date_published__lt = article.date_published).exclude(tags__in = article.tags.all)[:4])
+    articles = a_tag + a_newer + a_older
     
     return render_to_response('view_article.html', {
         'article': article,
