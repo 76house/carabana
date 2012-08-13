@@ -44,7 +44,7 @@ $sprites-retina: sprite-map("icons2x/*.png");
 }
 
 
-@each $icon in search, rss, tag, chrono, bird, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
+@each $icon in search, rss, tag, chrono, bird, comment, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
 {
   .#{$icon} { @include sprite-background($icon); display: inline-block; }
 }

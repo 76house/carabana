@@ -17,7 +17,7 @@
       {% if article %}
 
           <h2>{{ article.title|safe }}</h2>
-          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}</div>
+          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}{% if article.enable_comments %}&nbsp;&nbsp;/&nbsp;&nbsp;<a href="#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
           {{ article.perex_html|safe }}
           {{ article.body_html|safe }}
 
@@ -65,6 +65,7 @@
         {% if article.enable_comments %}
     <hr/>
 
+    <a name="comments"></a>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
