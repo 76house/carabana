@@ -44,8 +44,8 @@ def view_article(request, slug):
     if not a_tag or len(a_tag) < 2:
         is_similar = False
     
-    a_newer = list(Article.public.filter(date_published__gt = article.date_published).exclude(tags__in = article.tags.all)[:1])
-    a_older = list(Article.public.filter(date_published__lt = article.date_published).exclude(tags__in = article.tags.all)[:4])
+    a_newer = list(Article.public.filter(date_published__gt = article.date_published).exclude(tags__in = article.tags.all).order_by('date_published')[:1])
+    a_older = list(Article.public.filter(date_published__lt = article.date_published).exclude(tags__in = article.tags.all).order_by('-date_published')[:4])
     articles = a_tag + a_newer + a_older
     
     return render_to_response('view_article.html', {
