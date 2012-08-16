@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 
     # allow robots
-    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow:", mimetype="text/plain")),
+    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /tag\nDisallow: /chrono", mimetype="text/plain")),
 
     # carabana blog
     (r'^', include('blog.urls')),
