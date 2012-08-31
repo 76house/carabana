@@ -5,6 +5,14 @@
 
 {% block title %}{% if article %}{{ article.title|safe }} / {% endif %}čarabaňa.cz{% endblock title %}
 
+{% if article %}
+  {% block meta-title %}<meta name="title" content="{{ article.title|safe }}"/>{% endblock meta-title %}
+  {% block meta-desc %}<meta name="description" content="{{ article.perex|safe }}"/>{% endblock meta-desc %}
+  {% block meta-opengraph %}<meta property="og:title" content="{{ article.title|safe }}" /><meta property="og:description" content="{{ article.perex|safe }}" /><meta property="og:type" content="blog" /><meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" /><meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />{% endblock meta-opengraph %}
+
+{% endif %}
+
+
 {% block tab %}
     {% if is_draft %}<span class="separator"></span> <a href="/admin/blog/article/{{ article.id }}">DRAFT</a>{% endif %}
 {% endblock tab %}

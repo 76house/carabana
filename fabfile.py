@@ -4,7 +4,7 @@ env.hosts = ['bozka@s7.wservices.ch']
 
 def deploy():
    local('git push')
-   run('cd ~/carabana; git pull')
+   run('cd ~/carabana; git pull; ./manage.py collectstatic')
    run(' ~/init/carabana restart')
 
 def restart():

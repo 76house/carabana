@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="cz">
+<html lang="cz" prefix="og: http://ogp.me/ns# blog: http://ogp.me/ns/blog#">
 
   <head>
 
-    <meta charset="utf-8"/>
     <title>{% block title %}čarabaňa.cz{% endblock title %}</title>
 
-  	<meta name="description" content="Ofca v síti"/>
+    <meta charset="utf-8"/>
 	<meta name="keywords" content="76house, carabana, čarabaňa, ofca, blog, linux, software, development, mobile, design" />
 	<meta name="copyright" content="1999-2012, Martin Marek"/>
 	<meta name="author" content="Martin Marek"/>
 	<meta name="robots" content="index, follow" />
+
+    {% block meta-title %}<meta name="title" content="čarabaňa.cz"/>{% endblock meta-title %}
+    {% block meta-desc %}<meta name="description" content="Ofca v síti"/>{% endblock meta-desc %}
+    {% block meta-opengraph %}<meta property="og:title" content="čarabaňa.cz" /><meta property="og:description" content="Ofca v síti" /><meta property="og:type" content="blog" /><meta property="og:url" content="http://carabana.cz" /><meta property="og:image" content="http://carabana.cz/static/img/carabana.png" />{% endblock meta-opengraph %}
+    <meta name="twitter:card" value="summary"><meta name="twitter:site" value="@76house"><meta name="twitter:creator" value="@76house">
 
     <!--[if lt IE 9]>
       <link href="{{ STATIC_URL }}css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
