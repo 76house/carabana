@@ -34,10 +34,10 @@
 
       .lastcolumn { display: block; }
       .tags { @include section(8, $col-padding, $col-padding, true); }
+      .share { @include section(7.4, $col-padding, $col-padding, true); padding: 0.5em 0.7em 0.5em 1em; }
 
       pre { @include section(7.4, $col-padding, $col-padding, false); padding: 2em; }
     }
-    
   }
 }
 

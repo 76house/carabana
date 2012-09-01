@@ -50,15 +50,15 @@
           <div id="topnav">
 
             <div class="tab right">
-              <a class="rss" href="http://feeds.feedburner.com/carabana" alt="rss"></a>{% block tab %}{% endblock tab %}
+              <a class="rss" href="http://feeds.feedburner.com/carabana" alt="RSS" title="RSS"></a>{% block tab %}{% endblock tab %}
             </div>
 
           </div>
 
           <h1>čarabaňa.cz - ofca v síti</h1>
-          <a id="carabana-logo-link" href="/">
+          <a id="carabana-logo-link" {% block logolink %}href="/"{% endblock logolink %} title="Letííme!">
           <div id="carabana-logo" href="http://www.carabana.cz/" alt="čarabaňa.cz - ofca v síti">
-            <div id="city"></div><div id="tube"></div><div id="village"></div><div id="sun"></div><div id="ofca"></div>
+            <div id="light"></div><div id="city"></div><div id="tube"></div><div id="village"></div><div id="sun"></div><div id="ofca"></div>
           </div>
           </a>
 
@@ -87,7 +87,10 @@
           <div class="ofca-xicht"></div>
           <div class="impress">
             <a href="/"><div class="carabana"></div></a>
-            OFCA V SÍTI / Odpovědný vedoucí Martin Marek /<br/>Zabaleno do hřejivé vlny léta Páně 2012<br/>
+            <div class="info">
+              <div class="cz">OFCA V SÍTI / Odpovědný vedoucí Martin Marek /<br/>Zabaleno do hřejivé vlny léta Páně 2012</div>
+              <div class="en">SHEEP IN THE NET / Crafted by Martin Marek /<br/>Packed into warm wool 2012 A.D.</div>
+            </div>
             <div class="contacts">
               <a class="twitter" title="twitter" href="http://twitter.com/76house"></a>
               <a class="linkedin" title="linked in" href="http://cz.linkedin.com/in/martinmarek76"></a>

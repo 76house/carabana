@@ -4,6 +4,7 @@
 {% load truncate_paragraph %}
 {% load tag_list %}
 
+{% block logolink %}name="logo"{% endblock logolink %}
 
 {% block article %}
     <div class="main">
@@ -12,7 +13,7 @@
 
       {% if article %}
           <a href="{{ article.get_absolute_url }}"><h2>{{ article.title|safe }}</h2></a>
-          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}</div>
+          <div class="date">&nbsp;{{ article.date_published|date:"DATE_FORMAT" }}{% if article.enable_comments %}&nbsp;&nbsp;<a href="{{ article.get_absolute_url }}#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
           {{ article.perex_html|safe }}
           <p class="center"><a class="squared" href="{{ article.get_absolute_url }}">CELÝ ČLÁNEK »</a></p>
       {% else %}
@@ -82,9 +83,14 @@
     </a>
     {% endfor %}
 
-    <div class="column">
+    <!--div class="column">
       <p class="capital indent"><br/>» DALŠÍ ČLÁNKY<br/><a class="rounded btn-chrono" href="/chrono" title="Články dle data"></a> <a class="rounded btn-tag" href="/tag" title="Články dle tagů"></a></p>
-    </div>
+    </div-->
+
+    <!--div class="column">
+      <p class="indent capital"><a class="squared" href="">DALŠÍ ČLÁNKY »</a></p>
+    </div-->
+
 
     <!-- COLUMNS end =============================================== --> 
     {% endif %}

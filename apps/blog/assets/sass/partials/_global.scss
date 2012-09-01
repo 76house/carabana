@@ -9,8 +9,8 @@ $color-text: #604040;
 $color-text-small: #806060;
 $color-text-impress: #606468;
 $color-text-label: #ffffff;
-$color-link: #4070a0;
-$color-link-hover: #80b0b0;
+$color-link: #3060a0;
+$color-link-hover: #90b0b0;
 $color-btn-fg: #f0f0e8;
 $color-btn-bg: $color-link;
 $color-date: #408030;
@@ -78,7 +78,7 @@ section, article, header, footer, nav, aside, hgroup { display: block; }
 .right   { float: right; }
 .center  { width: auto; text-align: center; }
 .small   { font-size: 0.9em; color: $color-text-small; }
-.capital { letter-spacing: 0.1em; color: $color-date; text-transform: uppercase; /* text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); */ }
+.capital { letter-spacing: 0.1em; color: $color-date; text-transform: uppercase; font-size: 1.1em; /* text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); */ }
 .indent  { padding-left: 2em; }
 .date    { @extend .capital; font-size: 0.9em; margin-bottom: 2em; }
 .tilted  { -webkit-transform:rotate($img-rotation); -moz-transform:rotate($img-rotation); -o-transform:rotate($img-rotation); -ms-transform:rotate($img-rotation); }
@@ -110,11 +110,11 @@ body { text-align: center; -webkit-text-size-adjust: 100%; }
 /* links */
 
 a, a:link, a:visited { color: $color-link; text-decoration: none; border: 0; }
-a:hover, a:active, a:hover h2, a:active h2 { color: $color-link-hover; border: 0; cursor: pointer; }
+a:hover, a:active { border: 0; cursor: pointer; }
 a.squared
 {
-  &, &:link, &:visited { padding: 0.12em 0.5em; line-height: 2.5em; margin-right: 0.5em; font-size: 0.9em; font-weight: bold; letter-spacing: 0.1em; color: $color-btn-fg; background-color: $color-btn-bg; box-shadow: 0 0 6px rgba(0, 0, 255, 0.3); }
-  &:hover, &:active { color: $color-btn-bg; background-color: $color-btn-fg; } 
+  &, &:link, &:visited { padding: 0.2em 0.6em; line-height: 2.5em; margin-right: 0.5em; font-size: 0.9em; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; color: $color-btn-fg; background-color: /*$color-btn-bg*/ $color-title; box-shadow: 0 0 6px rgba(255, 0, 0, 0.2); border-radius: 4px; white-space:nowrap; }
+  &:hover, &:active { color: /*$color-btn-bg*/ $color-title; background-color: $color-btn-fg; } 
 }
 a.rounded, input.rounded
 {
@@ -140,11 +140,17 @@ input   { color: $color-title; letter-spacing: 0.06em; word-spacing: 0.15em; }
 
 h1 { display: none; }
 h2, h3, h4 { font-weight: normal; font-family: $font-stack; line-height: 1.35em; color: $color-title; }
-h2 { font-size: 1.8em; letter-spacing: 0.001em; word-spacing: 0.15em; padding-bottom: 0.1em;  }
-h3 { font-size: 1.3em; letter-spacing: 0.003em; word-spacing: 0.05em; padding: 1em 0 0.5em 0; }
+h2 { font-size: 2em; letter-spacing: 0.001em; word-spacing: 0.15em; padding-bottom: 0.1em; display: inline; }
+h3 { font-size: 1.4em; letter-spacing: 0.003em; word-spacing: 0.05em; padding: 1em 0 0.5em 0; }
 h4 { font-weight: bold; padding: 0.5em 0; }
 
-article .main, article .column, article aside { float: left; }
+article .main, article .column, article aside
+{
+  float: left;
+  a:hover, a:active { border-bottom: 1px dotted $color-text; }
+  a.squared:hover, a.squared:active { border: 0; }
+}
+article .column { h2:hover, h2:active { border-bottom: 1px dotted $color-text; } }
 article .main
 {
   p { text-indent: 1.5em; }
@@ -154,7 +160,7 @@ article .main
 article .column
 {
   @extend .small;
-  h2 { font-size: 1.4em; letter-spacing: 0; word-spacing: 0.1em; margin: 1.5em auto 0.3em auto; }
+  h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1.5em auto 0.5em auto; }
 }
-
+/*article .column:hover, article .column:active { h2 { border: 0; } }*/
 

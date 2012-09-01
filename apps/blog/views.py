@@ -79,6 +79,7 @@ def view_tag(request, slug = ""):
     return render_to_response('view_tag.html', {
         'slug' : slug,
         'tags': sorted(tags.iteritems()),
+        'taglist': sorted(Tag.objects.exclude(slug = slug)),
     }, context_instance=RequestContext(request))
 
 

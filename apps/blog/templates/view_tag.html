@@ -26,7 +26,8 @@
 
     {% endfor %}
 
-    <p class="tags">ČLÁNKY&nbsp;<span class="chrono"></span>&nbsp;<a href="/chrono">DLE DATA</a>{% if slug %}&nbsp;/ <span class="tag"></span>&nbsp;<a href="/tag">DLE TAGŮ</a>{% endif %}</p>
+    <!--p class="tags">ČLÁNKY&nbsp;<span class="chrono"></span>&nbsp;<a href="/chrono">DLE DATA</a>{% if slug %}&nbsp;/ <span class="tag"></span>&nbsp;<a href="/tag">DLE TAGŮ</a>{% endif %}</p-->
+    <p class="tags">/&nbsp;<span class="tag"></span>&nbsp;VŠECHNY ŠTÍTKY&nbsp;/&nbsp;&nbsp; {{ taglist|tag_list }}</p>
 
     <!-- COLUMNS end =============================================== --> 
     {% endif %}

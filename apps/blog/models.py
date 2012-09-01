@@ -226,6 +226,10 @@ class Article(models.Model):
         return ", ".join([p.name for p in self.tags.all()])
     tag_list.short_description = 'Tags'
     
+    # tags as a list
+    def taglist(self):
+        return self.tags.all()
+    
     # article title for admin (color shows the current status)
     def title_status(self):
         if self.status == Article.ARTICLE_STATUS_DRAFT:

@@ -25,14 +25,22 @@
       {% if article %}
 
           <h2>{{ article.title|safe }}</h2>
-          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}&nbsp;&nbsp;/&nbsp; <span class="tag"></span>&nbsp;{{ article.tags|tag_list }}{% if article.enable_comments %}&nbsp;&nbsp;/&nbsp;&nbsp;<a href="#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
+          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}{% if article.enable_comments %}&nbsp;&nbsp;<a href="#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
+
           {{ article.perex_html|safe }}
           {{ article.body_html|safe }}
 
           <div class="share">
+
+            {{ article.taglist|tag_list }}
+
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
             <div><a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" <a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" data-size="large">Tweet</a></div> 
+
           </div>
+
+
+
       {% else %}
           <p>&nbsp;</p>
           <h2>Béé, nic tady není!</h2>

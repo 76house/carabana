@@ -13,7 +13,7 @@
     
     h2 { font-size: 1.6em; }
     
-    header #topnav { height: 0px; }
+    header #topnav { height: 0px; display: none; }
     header #carabana-logo-link { height: $carabana-logo-small-height; display: block; }
     header #carabana-logo { width: 320px; height: $carabana-logo-small-height; margin-left: -34px; overflow: visible; background: url('#{$mediapath}/img/ofca-small.jpg') top center no-repeat; }
     header #carabana-logo div { height: 0px; width: 0px; background-image: none; }
@@ -58,6 +58,7 @@
 
       .gallery { @include section(3, 5, 5, true); margin-top: 4em; img { margin: 1.8em 0.7em 0 0.7em; } }
       .floatbox { @include section(3, $col-padding, $col-padding, true); }
+      .share { @include section(3.1, $col-padding, $col-padding, true); height: 4.3em; padding: 0.5em 0.7em 0.5em 1em; }
       pre { @include section(2.7, $col-padding, $col-padding, true); padding: 2em; font-size: 0.9em; }
     }
     
@@ -66,6 +67,7 @@
       @include section(3, 0, 0, true); text-align: center; margin-top: 6em; padding: 1em 0;
       .ofca-xicht { display: none; }
       .carabana {margin: 0 auto 0.8em auto; }
+      .info { width: auto; height: 5em; }
       .contacts { width: auto; padding: 0.5em 0; a { margin: 12px 4px; } }
     }
 
