@@ -138,9 +138,11 @@ TEMPLATE_DIRS = (
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS +=  (
     "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
     "blog.processors.latest_tweets",
     "blog.processors.latest_photos",
 )
+
 
 # fetching latest tweets from twitter
 TWITTER_USER = "76house"
@@ -153,6 +155,8 @@ FLICKR_KEY = '0d51ba001812a9de4326dc81a41a970b'
 FLICKR_TIMEOUT = 3600 * 4 # seconds
 FLICKR_ITEMCOUNT = 4
 
+# Loading text for endless pagination plugin
+ENDLESS_PAGINATION_LOADING = '<span class="chrono"></span> Moment...'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -164,6 +168,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
+    'endless_pagination',
     'south',
 
     'blog',

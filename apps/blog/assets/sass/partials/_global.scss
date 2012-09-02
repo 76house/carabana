@@ -68,7 +68,7 @@ section, article, header, footer, nav, aside, hgroup { display: block; }
 @mixin section($columns, $indentLeft, $indentRight, $last: false)
 {
   width: ($col-width * $columns) + ($col-padding * ($columns - 1)) - $indentLeft - $indentRight;
-  padding: 0 $indentRight 0 $indentLeft;
+  padding-left: $indentLeft; padding-right: $indentRight;
 
   @if $last != true { margin-right: $col-padding; }
 }
@@ -160,7 +160,7 @@ article .main
 article .column
 {
   @extend .small;
-  h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1.5em auto 0.5em auto; }
+  h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; }
 }
 /*article .column:hover, article .column:active { h2 { border: 0; } }*/
 

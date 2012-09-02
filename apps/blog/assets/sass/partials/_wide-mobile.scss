@@ -30,6 +30,7 @@
       .tags { @include section(5, $col-padding, $col-padding, true); }
       .gallery { @include section(5, 5, 5, true); margin: 4em auto 2em auto; }
       .share { @include section(4.4, $col-padding, $col-padding, true); height: 2.3em; padding: 0.5em 0.7em 0.5em 1em; }
+      #disqus_thread { @include section(5, $col-padding, $col-padding, true); }
       pre { @include section(4.3, $col-padding, $col-padding, true); padding: 2em; font-size: 0.9em; }
     }
     

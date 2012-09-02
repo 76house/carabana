@@ -33,8 +33,10 @@
       }
 
       .lastcolumn { display: block; }
+      .endless_container { clear: both; }
       .tags { @include section(8, $col-padding, $col-padding, true); }
       .share { @include section(7.4, $col-padding, $col-padding, true); padding: 0.5em 0.7em 0.5em 1em; }
+      #disqus_thread { @include section(8, $col-padding, $col-padding, true); }
 
       pre { @include section(7.4, $col-padding, $col-padding, false); padding: 2em; }
     }

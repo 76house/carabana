@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% load twitterize %}
-{% load truncate_paragraph %}
-{% load tag_list %}
 
 {% block logolink %}name="logo"{% endblock logolink %}
+{% block tab %}{% endblock tab %}
 
 {% block article %}
     <div class="main">
@@ -75,25 +74,10 @@
     {% if articles %}
     <!-- COLUMNS begin ============================================= --> 
 
-    {% for a in articles %}
-    <a class="{% if forloop.counter == 4 %}lastcolumn {% endif %}column" href="{{ a.get_absolute_url }}">
-      <h2>{{ a.title|safe }}</h2>
-        {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
-        {{ a.perex_html|truncate_paragraph|safe }}
-    </a>
-    {% endfor %}
-
-    <!--div class="column">
-      <p class="capital indent"><br/>» DALŠÍ ČLÁNKY<br/><a class="rounded btn-chrono" href="/chrono" title="Články dle data"></a> <a class="rounded btn-tag" href="/tag" title="Články dle tagů"></a></p>
-    </div-->
-
-    <!--div class="column">
-      <p class="indent capital"><a class="squared" href="">DALŠÍ ČLÁNKY »</a></p>
-    </div-->
-
+        {% include page_template %}
 
     <!-- COLUMNS end =============================================== --> 
     {% endif %}
-{% endblock columns %}
 
+{% endblock columns %}
 

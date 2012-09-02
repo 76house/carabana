@@ -49,6 +49,7 @@
       .lastcolumn { display: block; }
       .errorcolumn { display: none; & + a { text-align: center; } }
       .tags { @include section(3, 0, 0, true); }
+      #disqus_thread { @include section(3, 0, 0, true); }
 
       .booth
       {

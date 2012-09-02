@@ -13,9 +13,7 @@
 {% endif %}
 
 
-{% block tab %}
-    {% if is_draft %}<span class="separator"></span> <a href="/admin/blog/article/{{ article.id }}">DRAFT</a>{% endif %}
-{% endblock tab %}
+{% block tab %}{{ block.super }}{% if is_draft %}<span class="separator"></span> <a href="/admin/blog/article/{{ article.id }}">DRAFT</a>{% endif %}{% endblock tab %}
 
 {% block article %}
     <div class="main wide">
@@ -58,7 +56,7 @@
     {% if articles %}
     <hr/>
 
-    <p class="tags">/&nbsp;<span class="tag"></span>&nbsp;{% if is_similar %}Podobné články{% else %}Další články{% endif %} /</p>
+    <p class="tags">/&nbsp;{% if is_similar %}Podobné články{% else %}Další články{% endif %}&nbsp;/</p>
 
     <!-- COLUMNS begin ============================================= --> 
 

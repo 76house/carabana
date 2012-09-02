@@ -44,7 +44,7 @@ $sprites-retina: sprite-map("icons2x/*.png");
 }
 
 
-@each $icon in search, rss, tag, chrono, bird, comment, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
+@each $icon in search, rss, tag, chrono, home, bird, comment, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
 {
   .#{$icon} { @include sprite-background($icon); display: inline-block; }
 }
@@ -152,7 +152,7 @@ article
   .column
   {
     @include section(3.2, $col-padding * 0.4, $col-padding * 0.4, false);
-    padding-bottom: 1em; clear: none;
+    padding-bottom: 1.5em; clear: none;
 
     &:nth-of-type(3n+1) { clear: both; }
 
@@ -164,6 +164,9 @@ article
   .errorcolumn { @extend .column; background: url('#{$mediapath}/img/error.jpg') top right no-repeat; height: 250px; display: block; }
   .tags { @extend .clear; @extend .capital; @include section(10, $col-padding, $col-padding, true); padding: 1em 1.3em; }
   .date { a, a:link, a:visited { border: 0; } }
+  
+  .endless_container { @extend .column; clear: both; font-size: 1.05em; }
+  .endless_more { @extend .squared; }
 
   aside
   {
@@ -174,7 +177,7 @@ article
   .label
   { 
     @extend .clear; @extend .left; @extend .extra-tilted;
-    font-weight: bold; font-family: $font-stack; font-size: 2.2em; line-height: 1.25em; color: $color-text-label; background-color: $color-title; padding: 0.06em 0.4em; margin: 0.6em 0.2em 0.4em 0.2em; box-shadow: 0 0 8px rgba(255, 100, 100, 0.9); border-radius: 5px;
+    font-weight: bold; font-family: $font-stack; font-size: 2.2em; line-height: 1.25em; color: $color-text-label; background-color: $color-title; padding: 0.06em 0.4em; margin: 0.8em 0.2em 1em 0.2em; box-shadow: 0 0 8px rgba(255, 100, 100, 0.9); border-radius: 5px;
     & + a { @extend .clear; }
   }
   
@@ -198,18 +201,10 @@ article
     div { float: left; margin-top: 0.3em; }
   }
   
+  #disqus_thread { @include section(10, $col-width + $col-padding, $col-width + $col-padding, true); }
+  
   pre { @include section(7.8, $col-padding, $col-padding, false); font-size: 0.9em; margin: 2em 0; padding: 2em; background-color: rgba(255, 255, 255, 0.3); box-shadow: 0 0 8px rgba(100, 100, 100, 0.3); }
 
-  /*  
-  #search-form
-  { 
-    @include section(9.7, $col-padding, $col-padding , true);
-    margin: 3em 1em 1em 1em; text-align: center;
-    background-color: rgba(0,0,0, 0.05); box-shadow: 0 0 4px rgba(176, 44, 44, 0.3);
-    
-    #phrase { width: 12em; position: relative; top: 14px; margin-right: 0.5em; padding: 0.2em 0.5em; box-shadow: 0 0 7px rgba(160, 160, 140, 0.5); }
-  }
-  */
 }
 
 

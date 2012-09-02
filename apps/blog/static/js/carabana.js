@@ -103,8 +103,25 @@ $(document).ready(function()
     }, 5000);
 
 
+    // AJAX loader for more articles on home page (django endless pagination plugin)
+    $("a.endless_more").live("click", function() {
+        var container = $(this).closest(".endless_container");
+        var loading = container.find(".endless_loading");
+        $(this).hide();
+        loading.show();
+        var data = "querystring_key=" + $(this).attr("rel").split(" ")[0];
+        $.get($(this).attr("href"), data, function(data) {
+            container.before(data);
+            container.remove();
+            $("article .column").fadeTo(500, 1);
+        });
+        return false;
+    });
+
+
     // page ready: fade in the sheep and related objects    
     $('#carabana-logo').hide().fadeTo(1000, 1);
+    $("article .column").fadeTo(500, 1);
     
 });
 

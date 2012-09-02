@@ -7,9 +7,9 @@ from django.http import Http404
 
 
 # home page
-def index(request):
+def index(request, template = 'index.html', page_template = 'articles_page.html' ):
 
-    # fetch latest 1 + 4 articles
+    # fetch latest 1 + older articles
 
     try:
         articles = Article.public.all()
@@ -17,13 +17,17 @@ def index(request):
             article = articles[0]
         else:
             article = None
-        articles = articles[1:5]
+        articles = articles[1:]
     except Article.DoesNotExist:
         articles = None
+        
+    if request.is_ajax():
+        template = page_template
 
-    return render_to_response('index.html', {
+    return render_to_response(template, {
         'article': article,
-        'articles': articles
+        'articles': articles,
+        'page_template': page_template,
         }, context_instance=RequestContext(request))
 
 
@@ -78,8 +82,8 @@ def view_tag(request, slug = ""):
 
     return render_to_response('view_tag.html', {
         'slug' : slug,
-        'tags': sorted(tags.iteritems()),
-        'taglist': sorted(Tag.objects.exclude(slug = slug)),
+        'tags': tags.iteritems(),
+        'taglist': Tag.objects.exclude(slug = slug).order_by('name'),
     }, context_instance=RequestContext(request))
 
 

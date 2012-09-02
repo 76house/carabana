@@ -131,7 +131,7 @@ article .column h2:hover, article .column h2:active { border-bottom: 1px dotted 
 article .main p { text-indent: 1.5em; }
 article .main h3 + p, article .main h4 + p, article .main .date + p, article .main img + p, article .main .center, article .main .right { text-indent: 0; }
 
-article .column h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1.5em auto 0.5em auto; }
+article .column h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; }
 
 /*article .column:hover, article .column:active { h2 { border: 0; } }*/
 header, footer { display: none; }
