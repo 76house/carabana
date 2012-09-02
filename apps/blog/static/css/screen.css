@@ -229,7 +229,7 @@ article .wide .youtube, article .wide .document { margin-left: 60px; }
 article .wide .floatbox { display: block; }
 article .booth { opacity: 0.92; width: 204px; padding-left: 24px; padding-right: 24px; margin-right: 24px; height: 10.7em; background: url("../img/booth.png") top right no-repeat; }
 article .booth h3 { color: rgba(255, 255, 255, 0); }
-article .gallery { width: 848px; padding-left: 24px; padding-right: 24px; position: relative; float: left; margin: 3em 5px 2em 5px; padding: 0; box-shadow: 0 0 3px rgba(80, 70, 0, 0.3); border-radius: 7px; border: 1px solid #c88040; }
+article .gallery { width: 848px; padding-left: 24px; padding-right: 24px; position: relative; float: left; margin: 3em 5px; padding: 0; box-shadow: 0 0 3px rgba(80, 70, 0, 0.3); border-radius: 7px; border: 1px solid #c88040; }
 article .gallery img { width: 150px; height: 150px; border: 10px solid rgba(255, 255, 255, 0.7); border-radius: 1px; box-shadow: 0 0 5px rgba(80, 70, 0, 0.3); }
 article .gallery img:hover, article .gallery img:active { border-color: #fff; }
 article .gallery .content { width: 100%; height: 100%; text-align: center; border-radius: 7px; background-color: rgba(250, 140, 80, 0.1); box-shadow: inset 0px 0px 300px 100px rgba(220, 160, 0, 0.7); }
@@ -337,7 +337,7 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
   #wrapper article .column, #wrapper article .errorcolumn, #wrapper article .endless_container, #wrapper article .booth, #wrapper article aside { width: 292px; padding-left: 72px; padding-right: 72px; }
   #wrapper article .column img, #wrapper article .errorcolumn img, #wrapper article .endless_container img { width: 300px; }
   #wrapper article .tags { width: 388px; padding-left: 24px; padding-right: 24px; }
-  #wrapper article .gallery { width: 426px; padding-left: 5; padding-right: 5; margin: 4em auto 2em auto; }
+  #wrapper article .gallery { width: 426px; padding-left: 5; padding-right: 5; margin: 4em auto 3em auto; }
   #wrapper article .share { width: 332.8px; padding-left: 24px; padding-right: 24px; height: 2.3em; padding: 0.5em 0.7em 0.5em 1em; }
   #wrapper article #disqus_thread { width: 388px; padding-left: 24px; padding-right: 24px; }
   #wrapper article pre { width: 323.6px; padding-left: 24px; padding-right: 24px; padding: 2em; font-size: 0.9em; }

@@ -133,7 +133,7 @@ article
   .gallery
   {
     @include section(10, $col-padding, $col-padding, true);
-    position: relative; float: left; margin: 3em 5px 2em 5px; padding: 0; box-shadow: 0 0 3px rgba(80, 70, 0, 0.3); border-radius: 7px; border: 1px solid #c88040;
+    position: relative; float: left; margin: 3em 5px; padding: 0; box-shadow: 0 0 3px rgba(80, 70, 0, 0.3); border-radius: 7px; border: 1px solid #c88040;
 
     img
     {
