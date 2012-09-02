@@ -54,7 +54,7 @@ def latest_photos(request):
             # calculate the thumbnail URL and photo URL
             # http://www.flickr.com/services/api/misc.urls.html
             thumbnail_url = "http://farm%s.static.flickr.com/%s/%s_%s_q.jpg" % (farm_id, server_id, id, secret)
-            photo_url = "https://www.flickr.com/photos/%s/%s"  % (user_id, id)
+            photo_url = "http://www.flickr.com/photos/%s/%s"  % (user_id, id)
             t = thumbnail_url, photo_url, title
             photos.append(t)
 

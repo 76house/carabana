@@ -121,7 +121,6 @@ $(document).ready(function()
 
     // page ready: fade in the sheep and related objects    
     $('#carabana-logo').hide().fadeTo(1000, 1);
-    $("article .column").fadeTo(500, 1);
     
 });
 
