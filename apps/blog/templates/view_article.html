@@ -8,8 +8,21 @@
 {% if article %}
   {% block meta-title %}<meta name="title" content="{{ article.title|safe }}"/>{% endblock meta-title %}
   {% block meta-desc %}<meta name="description" content="{{ article.perex|safe }}"/>{% endblock meta-desc %}
-  {% block meta-opengraph %}<meta property="og:title" content="{{ article.title|safe }}" /><meta property="og:description" content="{{ article.perex|safe }}" /><meta property="og:type" content="blog" /><meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" /><meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />{% endblock meta-opengraph %}
-
+    {% block meta-opengraph %}
+    <meta property="og:title" content="{{ article.title|safe }}" />
+    <meta property="og:description" content="{{ article.perex_html|striptags }}" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" />
+    <meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />
+    {% endblock meta-opengraph %}
+    {% block meta-twitter %}
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" value="@76house">
+    <meta name="twitter:url" value="http://carabana.cz{{ article.get_absolute_url }}" />
+    <meta name="twitter:title" value="{{ article.title|safe }}" />
+    <meta name="twitter:description" value="{{ article.perex_html|striptags }}" />
+    <meta name="twitter:image" value="http://carabana.cz{{ article.drawing_url }}" />
+    {% endblock meta-twitter %}
 {% endif %}
 
 

@@ -13,8 +13,21 @@
 
     {% block meta-title %}<meta name="title" content="čarabaňa.cz"/>{% endblock meta-title %}
     {% block meta-desc %}<meta name="description" content="Ofca v síti"/>{% endblock meta-desc %}
-    {% block meta-opengraph %}<meta property="og:title" content="čarabaňa.cz" /><meta property="og:description" content="Ofca v síti" /><meta property="og:type" content="blog" /><meta property="og:url" content="http://carabana.cz" /><meta property="og:image" content="http://carabana.cz/static/img/carabana.png" />{% endblock meta-opengraph %}
-    <meta name="twitter:card" value="summary"><meta name="twitter:site" value="@76house"><meta name="twitter:creator" value="@76house">
+    {% block meta-opengraph %}
+    <meta property="og:title" content="čarabaňa.cz" />
+    <meta property="og:description" content="Ofca v síti" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="http://carabana.cz" />
+    <meta property="og:image" content="http://carabana.cz/static/img/carabana.png" />
+    {% endblock meta-opengraph %}
+    {% block meta-twitter %}
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" value="@76house">
+    <meta name="twitter:url" value="http://carabana.cz" />
+    <meta name="twitter:title" value="čarabaňa.cz" />
+    <meta name="twitter:description" value="Ofca v síti" />
+    <meta name="twitter:image" value="http://carabana.cz/static/img/carabana.png" />
+    {% endblock meta-twitter %}
 
     <!--[if lt IE 9]>
       <link href="{{ STATIC_URL }}css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -32,7 +45,7 @@
 
     <!-- jQuery lib (Google CDN / local backup) ============================== -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-    <script src="{{ STATIC_URL }}js/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <!--script src="{{ STATIC_URL }}js/jquery-1.8.0.min.js" type="text/javascript"></script-->
 
     <!-- Animations ========================================================== -->
     <script src="{{ STATIC_URL }}js/carabana.js" type="text/javascript"></script>
