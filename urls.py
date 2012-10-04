@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 
     # allow robots
-    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /tag\nDisallow: /chrono\nDisallow: /static\nDisallow: /media\n\nSitemap: http://carabana.cz/sitemap.xml", mimetype="text/plain")),
+    (r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /tag\nDisallow: /chrono\nDisallow: /static\n\nSitemap: http://carabana.cz/sitemap.xml", mimetype="text/plain")),
 
     # add sitemap
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),

@@ -123,15 +123,14 @@ h3 { font-size: 1.4em; letter-spacing: 0.003em; word-spacing: 0.05em; padding: 1
 h4 { font-weight: bold; padding: 0.5em 0; }
 
 article .main, article .column, article aside { float: left; }
-article .main a:hover, article .main a:active, article .column a:hover, article .column a:active, article aside a:hover, article aside a:active { border-bottom: 1px dotted #604040; }
+article .main a:hover, article .main a:active, article .column a:hover, article .column a:active, article aside a:hover, article aside a:active { border-bottom: 2px dotted #90b0b0; }
 article .main a.squared:hover, article .main a.squared:active, article .column a.squared:hover, article .column a.squared:active, article aside a.squared:hover, article aside a.squared:active { border: 0; }
-
-article .column h2:hover, article .column h2:active { border-bottom: 1px dotted #604040; }
 
 article .main p { text-indent: 1.5em; }
 article .main h3 + p, article .main h4 + p, article .main .date + p, article .main img + p, article .main .center, article .main .right { text-indent: 0; }
 
-article .column h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; }
+article .column:hover > h2, article .column:active > h2 { border-bottom: 2px dotted #90b0b0; }
+article .column h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; padding-bottom: 0; display: inline; }
+article .column h2 + img, article .column h2 + p { margin-top: 0.5em; }
 
-/*article .column:hover, article .column:active { h2 { border: 0; } }*/
 header, footer { display: none; }

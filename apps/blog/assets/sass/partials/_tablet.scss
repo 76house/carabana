@@ -9,11 +9,15 @@
   {
     @include grid(8);
     
-    header #carabana-logo { @include column(8, true); }
-    header #carabana-logo #city { left: 133px; }
-    header #carabana-logo #tube { left: 297px; }
-    header #carabana-logo #village { left: 371px; }
-    header #carabana-logo #sun { left: 434px; }
+    header
+    {
+      #topnav { @include column(8.6, true); }
+      #carabana-logo { @include column(8, true); }
+      #carabana-logo #city { left: 133px; }
+      #carabana-logo #tube { left: 297px; }
+      #carabana-logo #village { left: 371px; }
+      #carabana-logo #sun { left: 434px; }
+    }
 
     article
     {

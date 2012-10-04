@@ -13,10 +13,14 @@
     
     h2 { font-size: 1.6em; }
     
-    header #topnav { height: 0px; display: none; }
-    header #carabana-logo-link { height: $carabana-logo-small-height; display: block; }
-    header #carabana-logo { width: 320px; height: $carabana-logo-small-height; margin-left: -34px; overflow: visible; background: url('#{$mediapath}/img/ofca-small.jpg') top center no-repeat; }
-    header #carabana-logo div { height: 0px; width: 0px; background-image: none; }
+    header
+    {
+      padding-bottom: 0;
+      #topnav { height: 0px; display: none; }
+      #carabana-logo-link { height: $carabana-logo-small-height; display: block; }
+      #carabana-logo { top: 0; width: 320px; height: $carabana-logo-small-height; margin-left: -34px; overflow: visible; background: url('#{$mediapath}/img/ofca-small.jpg') top center no-repeat; }
+      #carabana-logo div { height: 0px; width: 0px; background-image: none; }
+    }
 
     article
     {

@@ -128,17 +128,16 @@ h3 { font-size: 1.4em; letter-spacing: 0.003em; word-spacing: 0.05em; padding: 1
 h4 { font-weight: bold; padding: 0.5em 0; }
 
 article .main, article .column, article .errorcolumn, article .endless_container, article aside { float: left; }
-article .main a:hover, article .main a:active, article .column a:hover, article .errorcolumn a:hover, article .endless_container a:hover, article .column a:active, article .errorcolumn a:active, article .endless_container a:active, article aside a:hover, article aside a:active { border-bottom: 1px dotted #604040; }
+article .main a:hover, article .main a:active, article .column a:hover, article .errorcolumn a:hover, article .endless_container a:hover, article .column a:active, article .errorcolumn a:active, article .endless_container a:active, article aside a:hover, article aside a:active { border-bottom: 2px dotted #90b0b0; }
 article .main a.squared:hover, article .main a.endless_more:hover, article .main a.squared:active, article .main a.endless_more:active, article .column a.squared:hover, article .errorcolumn a.squared:hover, article .endless_container a.squared:hover, article .column a.endless_more:hover, article .errorcolumn a.endless_more:hover, article .endless_container a.endless_more:hover, article .column a.squared:active, article .errorcolumn a.squared:active, article .endless_container a.squared:active, article .column a.endless_more:active, article .errorcolumn a.endless_more:active, article .endless_container a.endless_more:active, article aside a.squared:hover, article aside a.endless_more:hover, article aside a.squared:active, article aside a.endless_more:active { border: 0; }
-
-article .column h2:hover, article .errorcolumn h2:hover, article .endless_container h2:hover, article .column h2:active, article .errorcolumn h2:active, article .endless_container h2:active { border-bottom: 1px dotted #604040; }
 
 article .main p { text-indent: 1.5em; }
 article .main h3 + p, article .main h4 + p, article .main .date + p, article .main img + p, article .main .center, article .main .right { text-indent: 0; }
 
-article .column h2, article .errorcolumn h2, article .endless_container h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; }
+article .column:hover > h2, article .errorcolumn:hover > h2, article .endless_container:hover > h2, article .column:active > h2, article .errorcolumn:active > h2, article .endless_container:active > h2 { border-bottom: 2px dotted #90b0b0; }
+article .column h2, article .errorcolumn h2, article .endless_container h2 { font-size: 1.5em; letter-spacing: 0; word-spacing: 0.1em; margin: 1em auto 0.5em auto; padding-bottom: 0; display: inline; }
+article .column h2 + img, article .errorcolumn h2 + img, article .endless_container h2 + img, article .column h2 + p, article .errorcolumn h2 + p, article .endless_container h2 + p { margin-top: 0.5em; }
 
-/*article .column:hover, article .column:active { h2 { border: 0; } }*/
 /* Default Layout: 992px. Gutters: 24px. Outer margins: 48px. Leftover space for scrollbars @1024px: 32px.  */
 #wrapper { width: 896px; }
 
@@ -204,11 +203,11 @@ body { background: #f0e0b0 url("../img/background.jpg"); }
 
 /* --- header */
 /* generate ofca-related flying objects */
-header { width: 100%; min-width: 100%; text-align: left; overflow: hidden; }
+header { width: 100%; min-width: 100%; text-align: left; overflow: hidden; padding-bottom: 60px; }
 header h1 { display: none; }
-header #topnav { width: 100%; min-width: 100%; height: 60px; }
+header #topnav { width: 896px; height: 60px; position: fixed; z-index: 1000; }
 header #carabana-logo-link { height: 385px; display: block; }
-header #carabana-logo { width: 896px; position: absolute; height: 385px; display: inline-block; }
+header #carabana-logo { width: 896px; position: absolute; top: 60px; height: 385px; display: inline-block; }
 header #carabana-logo #light { position: absolute; width: 100%; height: 385px; background: url("../img/ofca-light.png") bottom center no-repeat; }
 header #carabana-logo #ofca { position: absolute; width: 100%; height: 385px; background: url("../img/ofca-big.png") bottom center no-repeat; }
 header #carabana-logo #city { position: absolute; left: 225px; top: 3px; width: 193px; height: 193px; background: url("../img/ofca-obj-city.png"); background-size: 193px 193px; }
@@ -269,6 +268,7 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
 
 /* Tablet Layout: 768px. Gutters: 24px. Outer margins: 28px. Inherits styles from: Default Layout.  */
 @media only screen and (min-width: 768px) and (max-width: 991px) { #wrapper { width: 712px; }
+  #wrapper header #topnav { width: 767.2px; }
   #wrapper header #carabana-logo { width: 712px; }
   #wrapper header #carabana-logo #city { left: 133px; }
   #wrapper header #carabana-logo #tube { left: 297px; }
@@ -292,9 +292,10 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
 /* Mobile Layout: 320px. Gutters: 24px. Outer margins: 34px. Inherits styles from: Default Layout.  */
 @media only screen and (max-width: 767px) { #wrapper { width: 252px; }
   #wrapper h2 { font-size: 1.6em; }
+  #wrapper header { padding-bottom: 0; }
   #wrapper header #topnav { height: 0px; display: none; }
   #wrapper header #carabana-logo-link { height: 190px; display: block; }
-  #wrapper header #carabana-logo { width: 320px; height: 190px; margin-left: -34px; overflow: visible; background: url("../img/ofca-small.jpg") top center no-repeat; }
+  #wrapper header #carabana-logo { top: 0; width: 320px; height: 190px; margin-left: -34px; overflow: visible; background: url("../img/ofca-small.jpg") top center no-repeat; }
   #wrapper header #carabana-logo div { height: 0px; width: 0px; background-image: none; }
   #wrapper article .main { margin: 1em auto; }
   #wrapper article .main .framed, #wrapper article .main .youtube, #wrapper article .main .document, #wrapper article .main .tilted, #wrapper article .main .wide .tilted, #wrapper article .wide .main .tilted { border-width: 0.4em; margin: 1.5em 0.2em; background: none !important; }
