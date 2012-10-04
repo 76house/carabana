@@ -4,6 +4,7 @@
 {% load tag_list %}
 
 {% block title %}{% if article %}{{ article.title|safe }} / {% endif %}čarabaňa.cz{% endblock title %}
+{% block keywords %}{% if article.keywords %}{{ article.keywords }}{% else %}blog{% endif %}{% endblock keywords %}
 
 {% if article %}
   {% block meta-title %}<meta name="title" content="{{ article.title|safe }}"/>{% endblock meta-title %}
@@ -14,14 +15,7 @@
     <meta property="og:type" content="blog" />
     <meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" />
     <meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />
-    {% endblock meta-opengraph %}{% block meta-twitter %}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@76house">
-    <meta name="twitter:url" content="http://carabana.cz{{ article.get_absolute_url }}" />
-    <meta name="twitter:title" content="{{ article.title|safe }}" />
-    <meta name="twitter:description" content="{{ article.perex_html|truncate_paragraph|striptags }}" />
-    <meta name="twitter:image" content="http://carabana.cz{{ article.drawing_url }}" />
-    {% endblock meta-twitter %}
+    {% endblock meta-opengraph %}
 {% endif %}
 
 

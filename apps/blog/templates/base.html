@@ -6,7 +6,7 @@
     <title>{% block title %}čarabaňa.cz{% endblock title %}</title>
 
     <meta charset="utf-8"/>
-	<meta name="keywords" content="76house, carabana, čarabaňa, ofca, blog, linux, software, development, mobile, design" />
+	<meta name="keywords" content="76house, carabana, čarabaňa, Martin Marek, {% block keywords %}ofca, blog, linux, software, development, mobile, design{% endblock keywords %}" />
 	<meta name="copyright" content="1999-2012, Martin Marek"/>
 	<meta name="author" content="Martin Marek"/>
 	<meta name="robots" content="index, follow" />
@@ -20,12 +20,8 @@
     <meta property="og:url" content="http://carabana.cz" />
     <meta property="og:image" content="http://carabana.cz/static/img/carabana.png" />
     {% endblock meta-opengraph %}{% block meta-twitter %}
-    <meta name="twitter:card" value="summary">
-    <meta name="twitter:site" value="@76house">
-    <meta name="twitter:url" value="http://carabana.cz" />
-    <meta name="twitter:title" value="čarabaňa.cz" />
-    <meta name="twitter:description" value="Ofca v síti" />
-    <meta name="twitter:image" value="http://carabana.cz/static/img/carabana.png" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@76house">
     {% endblock meta-twitter %}
 
     <!--[if lt IE 9]>

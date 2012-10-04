@@ -197,6 +197,7 @@ class Article(models.Model):
 
     title           = models.CharField(max_length = 100, help_text = "Maximum 100 characters")
     slug            = models.SlugField(max_length = 100, unique = True, help_text = "Maximum 100 characters, must be unique") # unique URL
+    keywords        = models.CharField(max_length = 100, help_text = "Custom article keywords for better indexing by search machines")
     status          = models.IntegerField(choices = ARTICLE_STATUS_CHOICES, default = ARTICLE_STATUS_DRAFT) # article status
     date_published  = models.DateTimeField(default = datetime.now) # used for showing and sorting
     year_published  = models.IntegerField(default = 0) # hidden, used for grouping
