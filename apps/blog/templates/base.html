@@ -44,6 +44,8 @@
 
     <!-- Animations ========================================================== -->
     <script src="{{ STATIC_URL }}js/carabana.js" type="text/javascript"></script>
+    
+    {% block headscripts %}{% endblock headscripts %}
   </head>
 
   <body>
@@ -58,7 +60,7 @@
           <div id="topnav">
 
             <div class="tab right">
-              <a class="rss" href="http://feeds.feedburner.com/carabana" alt="RSS" title="RSS"></a>{% block tab %}<span class="separator"></span><a class="home" href="/" alt="home" title="Domů"></a>{% endblock tab %}
+              {% block pretab %}{% endblock pretab %}<a class="rss" href="http://feeds.feedburner.com/carabana" alt="RSS" title="RSS"></a>{% block tab %}<span class="separator"></span><a class="home" href="/" alt="home" title="Domů"></a>{% endblock tab %}
             </div>
 
           </div>

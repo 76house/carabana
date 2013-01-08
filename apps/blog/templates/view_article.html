@@ -16,6 +16,20 @@
     <meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" />
     <meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />
     {% endblock meta-opengraph %}
+
+    {% block headscripts %}
+    <!--script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */</script-->
+    {% endblock headscripts %}
+
 {% endif %}
 
 
@@ -38,12 +52,12 @@
 
             {{ article.taglist|tag_list }}
 
+            <div><iframe class="flattr-btn" src="http://api.flattr.com/button/view/?uid=76house&url=http://www.carabana.cz{{ article.get_absolute_url }}&title={{ article.title|safe|urlencode }}&description={{ article.perex|truncate_paragraph|safe|urlencode }}&language=cs_CZ&tags={{ article.tag_list }}&button=compact" allowtransparency="true" frameborder="0" scrolling="no" overflow="hidden" height="29" width="55"></iframe></div>
+
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
             <div><a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" <a href="https://twitter.com/share" class="twitter-share-button" data-via="76house" data-size="large">Tweet</a></div> 
 
           </div>
-
-
 
       {% else %}
           <p>&nbsp;</p>
