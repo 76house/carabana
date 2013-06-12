@@ -6,4 +6,5 @@
 *.sqlite
 db.txt
 local_settings.py
+settings-deployment.py
 

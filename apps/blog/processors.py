@@ -17,7 +17,7 @@ def latest_tweets(request):
         return {"tweets": tweets}
 
     # lazy fetch via twitter API
-    api = twitter.Api(consumer_key=TWITTER_CONSUMER_KEY, consumer_secret=TWITTER_CONSUMER_SECRET, token_key=TWITTER_TOKEN_KEY, token_secret=TWITTER_TOKEN_SECRET)
+    api = twitter.Api(consumer_key=settings.TWITTER_CONSUMER_KEY, consumer_secret=settings.TWITTER_CONSUMER_SECRET, token_key=settings.TWITTER_TOKEN_KEY, token_secret=settings.TWITTER_TOKEN_SECRET)
     tweets = api.GetUserTimeline(settings.TWITTER_USER)[:settings.TWITTER_ITEMCOUNT]
     for t in tweets:
         t.date = datetime.strptime(t.created_at, "%a %b %d %H:%M:%S +0000 %Y")
