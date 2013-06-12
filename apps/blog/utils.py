@@ -43,7 +43,7 @@ def process_markup(source, pure_text = False):
         '<a href="https://www.flickr.com/photos/\g<id>/" title="\g<title>"><img class="tilted" src="\g<src>" alt="\g<title>"></a>', result)
 
     # embed [youtube] object
-    result = re.sub('<p>\[youtube (?P<id>([\w_]+))\]<\/p>',
+    result = re.sub('<p>\[youtube (?P<id>([\w_-]+))\]<\/p>',
         '<iframe class="youtube" src="https://www.youtube.com/embed/\g<id>?rel=0" allowfullscreen></iframe>', result)
 
     # embed [slideshare] object
