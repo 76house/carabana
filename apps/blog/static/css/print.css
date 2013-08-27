@@ -95,6 +95,8 @@ a.rounded:hover, a.rounded:active, input.rounded:hover, input.rounded:active { c
 /* images and objects */
 .main img { width: 90%; max-width: 500px; margin: 1.5em 0.5em 2.5em 0.5em; }
 
+.main .nosize { width: auto; height: auto; margin: 0.5em 0 0 0; }
+
 .drawing { width: 500px; }
 
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
@@ -102,6 +104,8 @@ a.rounded:hover, a.rounded:active, input.rounded:hover, input.rounded:active { c
 .youtube { width: 560px; height: 315px; }
 
 .document { width: 560px; height: 446px; }
+
+.main .img, .main .img:link, .main .img:visited, .main .img:hover, .main .img:active { text-decoration: none; border: 0; }
 
 /* titles and sections */
 section { position: relative; width: 100%; min-width: 100%; text-align: left; overflow: hidden; }

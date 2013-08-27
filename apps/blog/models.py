@@ -257,22 +257,40 @@ class Article(models.Model):
 
     def save(self, force_insert = False, force_update = False, **kwargs):
 
+        temp_body = self.body
+
         # insert URL and CSS style for all inserted pictures in perex / body
         # remember drawing image, if inserted
         for picture in self.picture_set.all():
+            picture_size = Picture.PICTURE_BIG
+            can_be_link = False
+            style = ""
             if picture.title == "drawing":
                 self.drawing = picture.url(Picture.PICTURE_SMALL)
-                style = ""
+            elif picture.title.endswith("-nosize"):
+                style = "[.nosize]"
+                picture_size = Picture.PICTURE_ORIGINAL
+            elif picture.title.endswith("-link"):
+                picture_size = Picture.PICTURE_ORIGINAL
+                can_be_link = True
             else:
                 style = "[.tilted]"
             picture_tag = "![%s]\r" % picture.title
-            tag_replace = "![%s](%s)%s\r" % (picture.title, picture.url(Picture.PICTURE_BIG), style )
+            
+            tag_replace = "![%s](%s)%s\r" % (picture.title, picture.url(picture_size), style)
             self.perex = self.perex.replace(picture_tag, tag_replace)
             self.body = self.body.replace(picture_tag, tag_replace)
+            temp_body = temp_body.replace(picture_tag, tag_replace)
+
+            if can_be_link:
+                # convert ![image-link http://example.com] to <a href="http://example.com"><img src="image_url"></a>
+                to_search = '!\[%s (?P<link>([^\]]+))\]' % (picture.title)
+                to_replace = '<a href="\g<link>" class="img"><img src="%s" class="nosize"></a>' % (picture.url(picture_size))
+                temp_body = re.sub(to_search, to_replace, temp_body)
 
         # convert Markdown-compatible text markup to pure HTML
         self.perex_html = process_markup(self.perex, True)
-        self.body_html = process_markup(self.body)
+        self.body_html = process_markup(temp_body)
         super(Article, self).save(force_insert, force_update, **kwargs)
 
     #@permalink

@@ -20,6 +20,7 @@ $col-padding: 24px;
 $img-rotation: -2deg;
 $img-rotation-ex: -5deg;
 $obj-margin: 1.5em 0.5em 2.5em 0.5em;
+$obj-margin-min: 0.5em 0 0 0;
 $link-hover: 2px dotted $color-link-hover;
 
 $font-stack: Gentium, "URW Palladio L", Palladio, "Palatino Linotype", Palatino, "Lido ST", Baskerville, Cambria, serif;
@@ -127,10 +128,13 @@ a.rounded, input.rounded
 /* images and objects */
 
 .main img { width: 90%; max-width: 500px; margin: $obj-margin; }
+.main .nosize  { width: auto; height: auto; margin: $obj-margin-min; }
 .drawing { width: 500px; }
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
 .youtube { @extend .framed; width: 560px; height: 315px; }
 .document { @extend .framed; width: 560px; height: 446px; }
+
+.main .img { &, &:link, &:visited, &:hover, &:active { text-decoration: none; border: 0; } }
 
 /* titles and sections */
 
