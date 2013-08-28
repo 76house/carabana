@@ -127,6 +127,7 @@ a.rounded, input.rounded
 
 /* images and objects */
 
+.main a.squared { font-size: 0.7em; }
 .main img { width: 90%; max-width: 500px; margin: $obj-margin; }
 .main .nosize  { width: auto; height: auto; margin: $obj-margin-min; }
 .drawing { width: 500px; }

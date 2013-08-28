@@ -93,6 +93,8 @@ a.rounded, a.rounded:link, a.rounded:visited, input.rounded, input.rounded:link,
 a.rounded:hover, a.rounded:active, input.rounded:hover, input.rounded:active { color: #3060a0; background-color: #f0f0e8; border-color: #f0f0e8; cursor: pointer; }
 
 /* images and objects */
+.main a.squared { font-size: 0.7em; }
+
 .main img { width: 90%; max-width: 500px; margin: 1.5em 0.5em 2.5em 0.5em; }
 
 .main .nosize { width: auto; height: auto; margin: 0.5em 0 0 0; }
