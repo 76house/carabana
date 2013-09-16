@@ -17,12 +17,17 @@ def latest_tweets(request):
         return {"tweets": tweets}
 
     # lazy fetch via twitter API
-    api = twitter.Api(consumer_key=settings.TWITTER_CONSUMER_KEY, consumer_secret=settings.TWITTER_CONSUMER_SECRET, access_token_key=settings.TWITTER_TOKEN_KEY, access_token_secret=settings.TWITTER_TOKEN_SECRET)
-    tweets = api.GetUserTimeline(settings.TWITTER_USER)[:settings.TWITTER_ITEMCOUNT]
-    for t in tweets:
-        t.date = datetime.strptime(t.created_at, "%a %b %d %H:%M:%S +0000 %Y")
-
-    cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
+    tweets = []
+    try:
+        api = twitter.Api(consumer_key=settings.TWITTER_CONSUMER_KEY, consumer_secret=settings.TWITTER_CONSUMER_SECRET, access_token_key=settings.TWITTER_TOKEN_KEY, access_token_secret=settings.TWITTER_TOKEN_SECRET)
+        tweets = api.GetUserTimeline(settings.TWITTER_USER)[:settings.TWITTER_ITEMCOUNT]
+        for t in tweets:
+            t.date = datetime.strptime(t.created_at, "%a %b %d %H:%M:%S +0000 %Y")
+    except:
+        # we have to live without tweets
+        pass
+    finally:
+        cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
 
     return {"tweets": tweets}
 
@@ -39,27 +44,31 @@ def latest_photos(request):
 
     # lazy fetch via flicker API
     photos = []
-    flickr = flickrapi.FlickrAPI(settings.FLICKR_KEY)
-    photowalk = flickr.walk(user_id = settings.FLICKR_USER, per_page = settings.FLICKR_ITEMCOUNT)
-    
-    for i in range(settings.FLICKR_ITEMCOUNT):
-        photo = photowalk.next()
-        if photo is not None:
-            id = photo.attrib['id']
-            secret = photo.attrib['secret']
-            server_id = photo.attrib['server']
-            farm_id = photo.attrib['farm']
-            user_id = photo.attrib['owner']
-            title = photo.attrib['title']
+    try:
+        flickr = flickrapi.FlickrAPI(settings.FLICKR_KEY)
+        photowalk = flickr.walk(user_id = settings.FLICKR_USER, per_page = settings.FLICKR_ITEMCOUNT)
+        
+        for i in range(settings.FLICKR_ITEMCOUNT):
+            photo = photowalk.next()
+            if photo is not None:
+                id = photo.attrib['id']
+                secret = photo.attrib['secret']
+                server_id = photo.attrib['server']
+                farm_id = photo.attrib['farm']
+                user_id = photo.attrib['owner']
+                title = photo.attrib['title']
 
-            # calculate the thumbnail URL and photo URL
-            # http://www.flickr.com/services/api/misc.urls.html
-            thumbnail_url = "http://farm%s.static.flickr.com/%s/%s_%s_q.jpg" % (farm_id, server_id, id, secret)
-            photo_url = "http://www.flickr.com/photos/%s/%s"  % (user_id, id)
-            t = thumbnail_url, photo_url, title
-            photos.append(t)
-
-    cache.set('photos', photos, settings.FLICKR_TIMEOUT)
+                # calculate the thumbnail URL and photo URL
+                # http://www.flickr.com/services/api/misc.urls.html
+                thumbnail_url = "http://farm%s.static.flickr.com/%s/%s_%s_q.jpg" % (farm_id, server_id, id, secret)
+                photo_url = "http://www.flickr.com/photos/%s/%s"  % (user_id, id)
+                t = thumbnail_url, photo_url, title
+                photos.append(t)
+    except:
+        # we have to live without flickr photos
+        pass
+    finally:
+        cache.set('photos', photos, settings.FLICKR_TIMEOUT)
 
     return {"photos": photos}
 
