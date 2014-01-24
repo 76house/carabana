@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 
 # environment setting - production / development
 PRODUCTION = (socket.gethostname() == 'carabana.cz')
+ALLOWED_HOSTS = ['*']
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -189,6 +190,7 @@ LOGGING = {
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
+            'filters': [],
             'class': 'django.utils.log.AdminEmailHandler'
         }
     },
