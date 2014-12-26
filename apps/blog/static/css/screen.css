@@ -141,7 +141,7 @@ article .main a:hover, article .main a:active, article .column a:hover, article 
 article .main a.squared:hover, article .main a.endless_more:hover, article .main a.squared:active, article .main a.endless_more:active, article .column a.squared:hover, article .errorcolumn a.squared:hover, article .endless_container a.squared:hover, article .column a.endless_more:hover, article .errorcolumn a.endless_more:hover, article .endless_container a.endless_more:hover, article .column a.squared:active, article .errorcolumn a.squared:active, article .endless_container a.squared:active, article .column a.endless_more:active, article .errorcolumn a.endless_more:active, article .endless_container a.endless_more:active, article aside a.squared:hover, article aside a.endless_more:hover, article aside a.squared:active, article aside a.endless_more:active { border: 0; }
 
 article .main p { text-indent: 1.5em; }
-article .main table { margin: 2em 1.5em 2.5em 1.5em; }
+article .main table { width: 100%; margin: 2em 0 2.5em 0; padding: 0 1.5em; }
 article .main th { padding: 0.1em 0.5em; }
 article .main td { padding: 0.4em 0.5em; }
 article .main h3 + p, article .main h4 + p, article .main .date + p, article .main img + p, article .main .center, article .main .right { text-indent: 0; }
@@ -325,6 +325,9 @@ footer .impress .contacts a { margin: 12px 8px; box-shadow: 0 0 10px white; }
   #wrapper article .wide .youtube { width: 232px; height: 130px; margin-left: 2; }
   #wrapper article .wide .document { width: 232px; height: 200px; margin-left: 2; }
   #wrapper article .main, #wrapper article .column, #wrapper article .errorcolumn, #wrapper article .endless_container, #wrapper article .booth, #wrapper article aside { width: 252px; padding-left: 0; padding-right: 0; }
+  #wrapper article table { padding: 0; }
+  #wrapper article th { padding: 0.1em 0.1em; }
+  #wrapper article td { padding: 0.4em 0.1em; }
   #wrapper article .column .indent, #wrapper article .errorcolumn .indent, #wrapper article .endless_container .indent { padding-left: 0; text-align: center; }
   #wrapper article .column img, #wrapper article .errorcolumn img, #wrapper article .endless_container img { width: 250px; }
   #wrapper article .lastcolumn { display: block; }

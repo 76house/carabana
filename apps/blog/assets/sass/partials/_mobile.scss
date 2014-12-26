@@ -43,13 +43,18 @@
         .youtube { width: 232px; height: 130px; margin-left: 2; }
         .document { width: 232px; height: 200px; margin-left: 2; }
       }
+
       .main, .column, .booth, aside  { @include section(3, 0, 0, true); }
+      table { padding: 0; }
+      th { padding: 0.1em 0.1em; }
+      td { padding: 0.4em 0.1em; }
 
       .column
       {
         .indent { padding-left: 0; text-align: center; }
         img { width: 250px; }
       }
+
       .lastcolumn { display: block; }
       .errorcolumn { display: none; & + a { text-align: center; } }
       .tags { @include section(3, 0, 0, true); }

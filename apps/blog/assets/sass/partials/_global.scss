@@ -163,7 +163,7 @@ article .main, article .column, article aside
 article .main
 {
   p { text-indent: 1.5em; }
-  table { margin: 2em 1.5em 2.5em 1.5em; }
+  table { width: 100%; margin: 2em 0 2.5em 0; padding: 0 1.5em; }
   th { padding: 0.1em 0.5em; }
   td { padding: 0.4em 0.5em; }
   h3 + p, h4 + p, .date + p, img + p, .center, .right { text-indent: 0; }
