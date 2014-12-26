@@ -11,7 +11,7 @@ from django.conf import settings
 def process_markup(source, pure_text = False):
 
     # markdown
-    result = markdown(source, ['codehilite'])
+    result = markdown(source, ['codehilite', 'markdown.extensions.tables'])
 
     # -- text post-processing --
     

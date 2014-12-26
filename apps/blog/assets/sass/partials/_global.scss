@@ -5,10 +5,12 @@ $mediapath: '..';
 $color-background: #f0e0b0;
 $color-border-line: #c8b070;
 $color-title: #b02c2c;
-$color-text: #604040;
+$color-text: #803030;
+$color-table: #803030;
 $color-text-small: #806060;
 $color-text-impress: #606468;
 $color-text-label: #ffffff;
+$color-emphasize: rgba(255, 0, 0, 0.1);
 $color-link: #3060a0;
 $color-link-hover: #90b0b0;
 $color-btn-fg: #f0f0e8;
@@ -86,11 +88,14 @@ section, article, header, footer, nav, aside, hgroup { display: block; }
 .tilted  { -webkit-transform:rotate($img-rotation); -moz-transform:rotate($img-rotation); -o-transform:rotate($img-rotation); -ms-transform:rotate($img-rotation); }
 .extra-tilted  { -webkit-transform:rotate($img-rotation-ex); -moz-transform:rotate($img-rotation-ex); -o-transform:rotate($img-rotation-ex); -ms-transform:rotate($img-rotation-ex); }
 
-body, form, input, select, textarea, table, td, li { font-family: $font-stack; font-weight: normal; font-size: 1.15em; _font-size: 90%; }
+body, form, input, select, textarea, table, tr, th, td, li { font-family: $font-stack; font-weight: normal; font-size: 1.15em; _font-size: 90%; }
 form, input, textarea { font-size: 1em; letter-spacing: 0.01em; word-spacing: 0.06em; }
 input, textarea { border: 1px solid $color-border-line; margin: 0 3px; padding: 0 3px; color: $color-text-small; }
 
 p, li { color: $color-text; font-size: 1em; letter-spacing: 0.008em; word-spacing: 0.06em; line-height: 1.6em; }
+th, td { color: $color-table; font-size: 0.75em; letter-spacing: 0.008em; word-spacing: 0.06em; line-height: 1.4em; vertical-align: top; }
+th { font-weight: bold; color: $color-title; background-color: $color-emphasize; }
+td { border-bottom: 1px solid $color-emphasize; }
 hr { @extend .clear; border: none; width: 100%; height: 20px; background: url('#{$mediapath}/img/dot.png') bottom center repeat-x; opacity: 0.1; padding-top: 2em; margin-bottom: 2.5em; }
 
 ul { margin-left: 1.6em; padding-bottom: 1em; list-style-type: none; }
@@ -98,7 +103,7 @@ ol { margin-left: 2.8em; padding-bottom: 1em; }
 ul li:before { color: $color-title; font-weight: bold; content: "»"; padding-right: 0.7em; }
 ol li:before { color: $color-title; font-weight: bold; padding-right: 0.7em; }
 
-em { font-style: normal; color: $color-title; letter-spacing: 0.1em; word-spacing: 0.1em; background-color: rgba(255, 0, 0, 0.1); padding: 0.1em 0.3em; }
+em { font-style: normal; color: $color-title; letter-spacing: 0.1em; word-spacing: 0.1em; background-color: $color-emphasize; padding: 0.1em 0.3em; }
 pre { overflow: auto; color: $color-text; border: 1px solid $color-text-small; }
 
 
@@ -132,8 +137,6 @@ a.rounded, input.rounded
 .main .nosize  { width: auto; height: auto; margin: $obj-margin-min; }
 .drawing { width: 500px; }
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
-.youtube { @extend .framed; width: 560px; height: 315px; }
-.document { @extend .framed; width: 560px; height: 446px; }
 
 .main .img { &, &:link, &:visited, &:hover, &:active { text-decoration: none; border: 0; } }
 
@@ -160,6 +163,9 @@ article .main, article .column, article aside
 article .main
 {
   p { text-indent: 1.5em; }
+  table { margin: 1.5em; }
+  th { padding: 0.1em 0.5em; }
+  td { padding: 0.4em 0.5em; }
   h3 + p, h4 + p, .date + p, img + p, .center, .right { text-indent: 0; }
 }
 

@@ -5,7 +5,7 @@
 
 
 @import "compass/css3/background-size";
-@import "compass/utilities/text/replacement";
+@import "compass/typography/text/replacement";
 
 
 #{$less-grid-element} { @include grid(10); }
@@ -111,6 +111,8 @@ article
 
     .tilted { @extend .framed; }
     .floatbox { display: none; }
+    .youtube { @extend .framed; width: 560px; height: 315px; }
+    .document { @extend .framed; width: 560px; height: 446px; }
   }
   
   .wide

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Welcome to Compass. Use this file to define print styles. Import this file using the following HTML or equivalent: <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, hgroup, menu, footer, header, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; }
 
@@ -52,13 +53,19 @@ section, article, header, footer, nav, aside, hgroup { display: block; }
 
 .extra-tilted { -webkit-transform: rotate(-5deg); -moz-transform: rotate(-5deg); -o-transform: rotate(-5deg); -ms-transform: rotate(-5deg); }
 
-body, form, input, select, textarea, table, td, li { font-family: Gentium, "URW Palladio L", Palladio, "Palatino Linotype", Palatino, "Lido ST", Baskerville, Cambria, serif; font-weight: normal; font-size: 1.15em; _font-size: 90%; }
+body, form, input, select, textarea, table, tr, th, td, li { font-family: Gentium, "URW Palladio L", Palladio, "Palatino Linotype", Palatino, "Lido ST", Baskerville, Cambria, serif; font-weight: normal; font-size: 1.15em; _font-size: 90%; }
 
 form, input, textarea { font-size: 1em; letter-spacing: 0.01em; word-spacing: 0.06em; }
 
 input, textarea { border: 1px solid #c8b070; margin: 0 3px; padding: 0 3px; color: #806060; }
 
-p, li { color: #604040; font-size: 1em; letter-spacing: 0.008em; word-spacing: 0.06em; line-height: 1.6em; }
+p, li { color: #803030; font-size: 1em; letter-spacing: 0.008em; word-spacing: 0.06em; line-height: 1.6em; }
+
+th, td { color: #803030; font-size: 0.75em; letter-spacing: 0.008em; word-spacing: 0.06em; line-height: 1.4em; vertical-align: top; }
+
+th { font-weight: bold; color: #b02c2c; background-color: rgba(255, 0, 0, 0.1); }
+
+td { border-bottom: 1px solid rgba(255, 0, 0, 0.1); }
 
 hr { border: none; width: 100%; height: 20px; background: url("../img/dot.png") bottom center repeat-x; opacity: 0.1; padding-top: 2em; margin-bottom: 2.5em; }
 
@@ -72,7 +79,7 @@ ol li:before { color: #b02c2c; font-weight: bold; padding-right: 0.7em; }
 
 em { font-style: normal; color: #b02c2c; letter-spacing: 0.1em; word-spacing: 0.1em; background-color: rgba(255, 0, 0, 0.1); padding: 0.1em 0.3em; }
 
-pre { overflow: auto; color: #604040; border: 1px solid #806060; }
+pre { overflow: auto; color: #803030; border: 1px solid #806060; }
 
 /* background */
 html, body { height: 100%; }
@@ -103,10 +110,6 @@ a.rounded:hover, a.rounded:active, input.rounded:hover, input.rounded:active { c
 
 .gallery img { margin: 1.8em 0.9em 0 0.9em; }
 
-.youtube { width: 560px; height: 315px; }
-
-.document { width: 560px; height: 446px; }
-
 .main .img, .main .img:link, .main .img:visited, .main .img:hover, .main .img:active { text-decoration: none; border: 0; }
 
 /* titles and sections */
@@ -133,6 +136,9 @@ article .main a:hover, article .main a:active, article .column a:hover, article 
 article .main a.squared:hover, article .main a.squared:active, article .column a.squared:hover, article .column a.squared:active, article aside a.squared:hover, article aside a.squared:active { border: 0; }
 
 article .main p { text-indent: 1.5em; }
+article .main table { margin: 1.5em; }
+article .main th { padding: 0.1em 0.5em; }
+article .main td { padding: 0.4em 0.5em; }
 article .main h3 + p, article .main h4 + p, article .main .date + p, article .main img + p, article .main .center, article .main .right { text-indent: 0; }
 
 article .column:hover > h2, article .column:active > h2 { border-bottom: 2px dotted #90b0b0; }
