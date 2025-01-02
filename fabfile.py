@@ -17,14 +17,10 @@ def get_connection():
 
 @task
 def deploy(c):
-    # Push changes to the remote repository
-    print("Pushing local changes to remote repository...")
-    c.local("git push")
-
     # Connect to the remote server
     conn = get_connection()
 
-    # Pull the latest code
+    # Pull the latest code from git repository
     print("Pulling latest changes on the server...")
     conn.run(f"cd {REMOTE_PROJECT_DIR} && git pull")
 
