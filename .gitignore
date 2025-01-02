@@ -4,6 +4,8 @@
 *.*~
 *~
 *.sqlite
+*.sqlite3
+.DS_Store
 db.txt
 local_settings.py
 settings-deployment.py
