@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+*.*~
+*~
+*.sqlite
+db.txt
+local_settings.py
+settings-deployment.py
+__pycache__

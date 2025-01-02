@@ -1,0 +1,47 @@
+/* Wide Mobile Layout: 480px.
+ * Gutters: 24px.
+ * Outer margins: 22px.
+ * Inherits styles from: Default Layout, Mobile Layout.  */
+
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+  #{$less-grid-element}
+  {
+    @include grid(5);
+    
+    header #topnav { height: 0px; }
+    header #carabana-logo { width: 480px; margin-left: -22px; }
+
+    article
+    {
+      .main
+      {
+        @include section(5, $col-padding, $col-padding, true);
+        .drawing img { width: 338px; }
+      }
+      .wide
+      {
+        .drawing { margin-left: $col-padding; }
+        .youtube { width: 320px; height: 180px; margin-left: $col-padding; }
+        .document { width: 320px; height: 266px; margin-left: $col-padding; }
+      }
+      .column, .booth, aside { @include section(5, $col-padding * 3, $col-padding * 3, true); }
+      .column img { width: 300px; }
+      .tags { @include section(5, $col-padding, $col-padding, true); }
+      .gallery { @include section(5, 5, 5, true); margin: 4em auto 3em auto; }
+      .share { @include section(4.4, $col-padding, $col-padding, true); height: 2.3em; padding: 0.5em 0.7em 0.5em 1em; }
+      #disqus_thread { @include section(5, $col-padding, $col-padding, true); }
+      pre { @include section(4.3, $col-padding, $col-padding, true); padding: 2em; font-size: 0.9em; }
+    }
+    
+    footer
+    {
+      @include section(5, $col-padding, $col-padding, true);
+      padding: 2em 0;
+
+      .info { width: 400px; height: 3em; }
+      .contacts a { margin: 12px 8px; }
+    }
+  }
+}
+

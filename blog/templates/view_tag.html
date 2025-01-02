@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load truncate_paragraph %}
+{% load tag_list %}
+
+
+{% block columns %}
+    {% if tags %}
+    <!-- COLUMNS begin ============================================= --> 
+
+    {% for key, value in tags %}
+
+    {% if not slug %}<a href="/tag/{{ key }}">{% endif %}<div class="label">#{{ value.0.name }}</div>{% if not slug %}</a>{% endif %}
+
+    <div>
+
+        {% for a in value.1 %}
+        <a class="column" href="{{ a.get_absolute_url }}">
+          <h2>{{ a.title|safe }}</h2>
+          {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
+          {{ a.perex_html|truncate_paragraph|safe }}
+        </a>
+        {% endfor %}
+
+    </div>
+    <hr/>
+
+    {% endfor %}
+
+    <p class="tags">{{ taglist|tag_list }}</p>
+
+    <!-- COLUMNS end =============================================== --> 
+    {% endif %}
+{% endblock columns %}
+
+

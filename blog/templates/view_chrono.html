@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load truncate_paragraph %}
+{% load tag_list %}
+
+
+{% block columns %}
+    {% if years %}
+    <!-- COLUMNS begin ============================================= --> 
+
+    {% for key, value in years reversed %}
+
+    {% if not slug %}<a href="/chrono/{{ key }}">{% endif %}<div class="label">{{ key }}</div>{% if not slug %}</a>{% endif %}
+
+    <div>
+        {% if value %}
+            {% for a in value %}
+            <a class="column" href="{{ a.get_absolute_url }}">
+              <h2>{{ a.title|safe }}</h2>
+              {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
+              {{ a.perex_html|truncate_paragraph|safe }}
+            </a>
+            {% endfor %}
+        {% else %}
+            <a class="column" href="/">
+              <p><br/>Žádné články.</p>
+            </a>
+        {% endif %}
+    </div>
+    <hr/>
+
+    {% endfor %}
+
+    <p class="tags">ČLÁNKY&nbsp;{% if slug %}<span class="chrono"></span>&nbsp;<a href="/chrono">DLE DATA</a>&nbsp;/ {% endif %}<span class="tag"></span>&nbsp;<a href="/tag">DLE TAGŮ</a></p>
+
+    <!-- COLUMNS end =============================================== --> 
+    {% endif %}
+{% endblock columns %}
+
+

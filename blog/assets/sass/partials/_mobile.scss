@@ -1,0 +1,86 @@
+/* Mobile Layout: 320px.
+ * Gutters: 24px.
+ * Outer margins: 34px.
+ * Inherits styles from: Default Layout.  */
+
+@media only screen and (max-width: 767px)
+{
+  $carabana-logo-small-height: 190px;
+
+  #{$less-grid-element}
+  {
+    @include grid(3);
+    
+    h2 { font-size: 1.6em; }
+    
+    header
+    {
+      padding-bottom: 0;
+      #topnav { height: 0px; display: none; }
+      #carabana-logo-link { height: $carabana-logo-small-height; display: block; }
+      #carabana-logo { top: 0; width: 320px; height: $carabana-logo-small-height; margin-left: -34px; overflow: visible; background: url('#{$mediapath}/img/ofca-small.jpg') top center no-repeat; }
+      #carabana-logo div { height: 0px; width: 0px; background-image: none; }
+    }
+
+    article
+    {
+      .main
+      {
+        margin: 1em auto;
+        .framed
+        {
+          border-width: 0.4em; margin: 1.5em 0.2em;
+          background: none !important;
+          img { opacity: 0; }
+        }
+
+        .date { font-size: 0.8em; }
+        .drawing img { width: 250px; margin-left: 0; }
+      }
+      .wide
+      {
+        .drawing { margin-left: $col-padding / 2; }
+        .youtube { width: 232px; height: 130px; margin-left: 2; }
+        .document { width: 232px; height: 200px; margin-left: 2; }
+      }
+
+      .main, .column, .booth, aside  { @include section(3, 0, 0, true); }
+      table { padding: 0; }
+      th { padding: 0.1em 0.1em; }
+      td { padding: 0.4em 0.1em; }
+
+      .column
+      {
+        .indent { padding-left: 0; text-align: center; }
+        img { width: 250px; }
+      }
+
+      .lastcolumn { display: block; }
+      .errorcolumn { display: none; & + a { text-align: center; } }
+      .tags { @include section(3, 0, 0, true); }
+      #disqus_thread { @include section(3, 0, 0, true); }
+
+      .booth
+      {
+        background-image: none; background-position: top center; height: 4em;
+        h3 { color: $color-title; }
+      }
+
+      .gallery { @include section(3, 5, 5, true); margin-top: 4em; img { margin: 1.8em 0.7em 0 0.7em; } }
+      .floatbox { @include section(3, $col-padding, $col-padding, true); }
+      .share { @include section(3.1, $col-padding, $col-padding, true); height: 4.3em; padding: 0.5em 0.7em 0.5em 1em; }
+      pre { @include section(2.7, $col-padding, $col-padding, true); padding: 2em; font-size: 0.9em; }
+    }
+    
+    footer
+    {
+      @include section(3, 0, 0, true); text-align: center; margin-top: 6em; padding: 1em 0;
+      .ofca-xicht { display: none; }
+      .carabana {margin: 0 auto 0.8em auto; }
+      .info { width: auto; height: 5em; }
+      .contacts { width: auto; padding: 0.5em 0; a { margin: 12px 4px; } }
+    }
+
+  }
+}
+

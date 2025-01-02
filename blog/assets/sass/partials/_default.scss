@@ -1,0 +1,246 @@
+/* Default Layout: 992px.
+ * Gutters: 24px.
+ * Outer margins: 48px.
+ * Leftover space for scrollbars @1024px: 32px.  */
+
+
+@import "compass/css3/background-size";
+@import "compass/typography/text/replacement";
+
+
+#{$less-grid-element} { @include grid(10); }
+
+
+/* global variables */
+
+$carabana-logo-height: 385px;
+
+
+/* --- background */
+
+body { background: $color-background url('#{$mediapath}/img/background.jpg'); }
+#bg-top { background: url('#{$mediapath}/img/background-top.jpg') top center repeat-x; }
+#bg-bottom { background: url('#{$mediapath}/img/background-bottom.jpg') bottom center repeat-x; }
+ 
+
+/* --- icons */
+
+$sprites: sprite-map("icons/*.png");
+$sprites-retina: sprite-map("icons2x/*.png");
+
+@mixin sprite-background($name)
+{
+  @include hide-text;
+  background-image: sprite-url($sprites); background-position: sprite-position($sprites, $name); background-repeat:no-repeat; display:block;
+
+  height:image-height(sprite-file($sprites, $name));
+  width:image-width(sprite-file($sprites, $name));
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 2)
+  {
+    @include background-size(56px auto);
+    background-image:sprite-url($sprites-retina);
+  }
+}
+
+
+@each $icon in search, rss, tag, chrono, home, bird, comment, flickr, lastfm, linkedin, star, twitter, btn-chrono, btn-tag, btn-download
+{
+  .#{$icon} { @include sprite-background($icon); display: inline-block; }
+}
+
+
+/* --- tabs */
+
+.tab
+{
+  @each $side in left, bottom, right { border-#{$side}: 1px solid $color-border-line; }
+  height: 1.5em; padding: 3px 10px 0px 10px; margin: 0 3px; background-color: #fcfccc; border-radius: 0px 0px 7px 7px; box-shadow: 0 0 5px rgba(80,70,0,0.3);
+	
+  input { margin: 0 3px 0 0; }
+  .separator { border-left: 1px solid $color-border-line; border-right: 1px solid white; margin: 0px 5px; }
+  #phrase { display: none; }
+}
+
+
+/* --- header */
+
+/* generate ofca-related flying objects */
+@mixin ofca-object($name, $left, $top, $width, $height)
+{
+  ##{$name} { position: absolute; left: $left; top: $top; width: $width; height: $height; background: url('#{$mediapath}/img/ofca-obj-#{$name}.png'); background-size: $width $height; }
+}
+
+header
+{
+  width: 100%; min-width: 100%; text-align: left; overflow: hidden; padding-bottom: 60px;
+  h1 { display: none; }
+  #topnav { @include column(10, true); height: 60px; position: fixed; z-index: 1000; }
+  #carabana-logo-link { height: $carabana-logo-height; display: block; }
+  #carabana-logo
+  {
+    @include column(10, true); position: absolute; top: 60px; height: $carabana-logo-height; display: inline-block; 
+
+
+    #light { position: absolute; width: 100%; height: $carabana-logo-height; background: url('#{$mediapath}/img/ofca-light.png') bottom center no-repeat; }
+
+    #ofca { position: absolute; width: 100%; height: $carabana-logo-height; background: url('#{$mediapath}/img/ofca-big.png') bottom center no-repeat; }
+    @include ofca-object(city,    225px,  3px, 193px, 193px);
+    @include ofca-object(tube,    389px, 20px,  82px, 102px);
+    @include ofca-object(village, 463px, 84px, 218px, 149px);
+    @include ofca-object(sun,     526px,  0px, 154px, 125px);
+  }
+}
+
+
+/* --- article */
+
+article
+{
+  .main
+  {
+    @include section(9, $col-padding, 0, false); margin: 3em auto 2em auto;
+    p { margin-bottom: 1em; }
+    .framed
+    {
+      margin: $obj-margin;
+      border: 0.8em solid rgba(255, 255, 230, 0.6); box-shadow: 0 0 5px rgba(80,70,0,0.3);
+      background-size: 100%; display: inline-block; zoom: 1; *display: inline; /* responsive image */
+      img { display: block; position: relative; }
+    }
+
+    .tilted { @extend .framed; }
+    .floatbox { display: none; }
+    .youtube { @extend .framed; width: 560px; height: 315px; }
+    .document { @extend .framed; width: 560px; height: 446px; }
+  }
+  
+  .wide
+  {
+    @include section(10, $col-width + $col-padding, $col-width + $col-padding, true); margin: 3em auto 0 auto;
+    & + .main { margin-top: 0; }
+    .framed, .drawing { margin-left: $col-width + 1.5 *  + $col-padding; }
+    .tilted { @extend .framed; }
+    .youtube, .document { margin-left: 2.5 * $col-padding; }
+    .floatbox { display: block; }
+  }
+
+  .booth
+  {
+    opacity: 0.92;
+    @include section(3, $col-padding, $col-padding, false); height: 10.7em; background: url('#{$mediapath}/img/booth.png') top right no-repeat;
+    h3 { color: rgba(255, 255, 255, 0); }
+  }
+
+  .gallery
+  {
+    @include section(10, $col-padding, $col-padding, true);
+    position: relative; float: left; margin: 3em 5px; padding: 0; box-shadow: 0 0 3px rgba(80, 70, 0, 0.3); border-radius: 7px; border: 1px solid #c88040;
+
+    img
+    {
+      width: 150px; height: 150px; border: 10px solid rgba(255, 255, 255, 0.7); border-radius: 1px; box-shadow: 0 0 5px rgba(80, 70, 0, 0.3);
+      &:hover, &:active { border-color: #fff; } 
+    }
+
+
+    .content
+    {
+      width: 100%; height: 100%; text-align: center; border-radius: 7px; background-color: rgba(250, 140, 80, 0.1); box-shadow: inset 0px 0px 300px 100px rgba(220, 160, 0, 0.7); 
+      a { font-size: 0.9em; width: 200px; display: inline-block; vertical-align: top; color: #906000; }
+    }
+  }
+  
+  .column
+  {
+    @include section(3.2, $col-padding * 0.4, $col-padding * 0.4, false);
+    padding-bottom: 1.5em; clear: none;
+
+    &:nth-of-type(3n+1) { clear: both; }
+
+    img { width: 250px; margin: 0.1em auto 1em auto; }
+    .floatbox { display: none; }
+  }
+  
+  .lastcolumn { display: none; }
+  .errorcolumn { @extend .column; background: url('#{$mediapath}/img/error.jpg') top right no-repeat; height: 250px; display: block; }
+  .tags { @extend .clear; @extend .capital; @include section(10, $col-padding, $col-padding, true); padding: 1em 1.3em; }
+  .date { a, a:link, a:visited { border: 0; } }
+  
+  .endless_container { @extend .column; clear: both; font-size: 1.05em; }
+  .endless_more { @extend .squared; }
+
+  aside
+  {
+    @include section(4, $col-padding * 2, $col-padding, true);
+    .date { margin: 0.8em 0 1.4em 0; }
+  }
+
+  .label
+  { 
+    @extend .clear; @extend .left; @extend .extra-tilted;
+    font-weight: bold; font-family: $font-stack; font-size: 2.2em; line-height: 1.25em; color: $color-text-label; background-color: $color-title; padding: 0.06em 0.4em; margin: 0.8em 0.2em 1em 0.2em; box-shadow: 0 0 8px rgba(255, 100, 100, 0.9); border-radius: 5px;
+    & + a { @extend .clear; }
+  }
+  
+  .floatbox
+  {
+    @include section(3, $col-padding * 1.1, 0, false);
+    float: right; background-color: $color-title; padding: 0 1.5em 0.5em 1.5em; margin: 0.2em 0 1em 2em; box-shadow: 0 0 8px rgba(255, 100, 100, 0.9);
+    h3, p { color: $color-text-label; }
+    p { font-size: 0.9em; line-height: 1.8em; }
+    h3 { font-weight: bold; text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4); }
+    a
+    {
+      &, &:link, &:visited { border: none; color: $color-title; background-color: $color-text-label; padding: 0.2em 0.5em; font-size: 1.3em; border-radius: 5px; box-shadow: 0 0 6px rgba(255, 255, 255, 0.5); }
+      &:hover, &:active { color: $color-text-label; background-color: $color-title; border: 1px solid #fdd; box-shadow: 0 0 6px #fff; cursor: pointer; }
+    }
+  }
+  
+  .share
+  {
+    @include section(8, 0, $col-padding * 1.5, true); height: 2.3em; margin: 4em auto 1em auto; padding: 0.5em 0.7em 0.5em 1em; background-color: rgba(0,0,0, 0.05); box-shadow: 0 0 4px rgba(176, 44, 44, 0.1);
+    div { float: left; margin-top: 0.3em; }
+  }
+  
+  #disqus_thread { @include section(10, $col-width + $col-padding, $col-width + $col-padding, true); }
+  
+  pre { @include section(7.8, $col-padding, $col-padding, false); font-size: 0.9em; margin: 2em 0; padding: 2em; background-color: rgba(255, 255, 255, 0.3); box-shadow: 0 0 8px rgba(100, 100, 100, 0.3); }
+
+}
+
+
+/* --- footer */
+
+footer
+{
+  @include section(7, $col-padding, $col-padding, true);
+  padding: 3em 0 3em 0; margin: 3em auto 0 auto;
+  
+  .ofca-xicht { float: left; width: 115px; height: 115px; background: url('#{$mediapath}/img/ofca-xicht.jpg') top right no-repeat; margin: -1em 1.5em 4em 2em; }
+  .impress
+  {
+    float: left; color: $color-text-impress;
+
+    .carabana { width: 158px; height: 25px; background: url('#{$mediapath}/img/carabana.png') top left no-repeat; margin-bottom: 0.8em; }
+    .info
+    {
+      width: 400px; height: 3em;
+      .en { display: none; }
+    }
+    .contacts
+    {
+      width: 250px; text-align: center; margin-top: 1.8em; padding: 0.5em 1em; background-color: rgba(100, 100, 150, 0.2); box-shadow: 0 0 3px rgba(100, 100, 150, 0.2);
+      a { margin: 12px 8px; box-shadow: 0 0 10px rgba(255, 255, 255, 1); }
+    }
+  }
+}
+
+
+
+/* --- social buttons */
+
+.flattr-btn { margin-right: 0.5em; }
+.twitter-share-button { width: 100px; }
+
+

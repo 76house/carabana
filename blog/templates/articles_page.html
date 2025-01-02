@@ -1,0 +1,15 @@
+{% load truncate_paragraph %}
+{% load el_pagination_tags %}
+
+{% paginate 24 articles %}
+
+{% for a in articles %}
+<a class="column" href="{{ a.get_absolute_url }}"{% if request.is_ajax %} style="opacity: 0.1;" {% endif %}>
+  <h2>{{ a.title|safe }}</h2>
+    {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
+    {{ a.perex_html|truncate_paragraph|safe }}
+
+</a>
+{% endfor %}
+
+{% show_more "DALŠÍ »" %}

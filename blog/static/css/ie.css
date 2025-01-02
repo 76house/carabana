@@ -1,0 +1,9 @@
+/* Welcome to Compass. Use this file to write IE specific override styles. Import this file using the following HTML or equivalent: <!--[if IE]> <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" /> <![endif]--> */
+/* line 7, ../../assets/sass/ie.scss */
+.main .tilted { padding: 0.8em; background-color: #ffffff; }
+
+/* line 8, ../../assets/sass/ie.scss */
+.gallery { background: #e0a830; filter: Alpha(opacity=90); }
+
+/* line 9, ../../assets/sass/ie.scss */
+.gallery img { border: 8px solid #ffffff; }

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block logolink %}name="logo"{% endblock logolink %}
+{% block tab %}{% endblock tab %}
+
+{% block article %}
+    <div class="main">
+
+      <!-- MAIN CONTENT begin ====================================== --> 
+
+      {% if article %}
+          <a href="{{ article.get_absolute_url }}"><h2>{{ article.title|safe }}</h2></a>
+          <div class="date">&nbsp;{{ article.date_published|date:"DATE_FORMAT" }}{% if article.enable_comments %}&nbsp;&nbsp;<a href="{{ article.get_absolute_url }}#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
+          {{ article.perex_html|safe }}
+          <p><a class="squared" href="{{ article.get_absolute_url }}">CELÝ ČLÁNEK »</a></p>
+      {% else %}
+          <h2>Béé, nic tady není!</h2>
+          <div class="date">&nbsp;</div>
+          <p>&nbsp;</p>
+      {% endif %}
+
+      <!-- MAIN CONTENT end ======================================== --> 
+
+    </div>
+{% endblock article %}
+
+
+{% block columns %}
+    {% if articles %}
+    <!-- COLUMNS begin ============================================= --> 
+
+        {% include page_template %}
+
+        {% block js %}
+            {{ block.super }}
+            <script src="{% static 'js/el-pagination.js' %}"></script>
+            <script>$.endlessPaginate();</script>
+        {% endblock %}
+
+    <!-- COLUMNS end =============================================== --> 
+    {% endif %}
+
+{% endblock columns %}
+

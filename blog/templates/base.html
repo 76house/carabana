@@ -1,0 +1,115 @@
+{% load static %}
+
+<!doctype html>
+<html lang="cz" prefix="og: http://ogp.me/ns# blog: http://ogp.me/ns/blog#">
+
+  <head>
+
+    <title>{% block title %}čarabaňa.cz{% endblock title %}</title>
+
+    <meta charset="utf-8"/>
+	<meta name="keywords" content="76house, carabana, čarabaňa, Martin Marek, {% block keywords %}ofca, blog, linux, software, development, mobile, design{% endblock keywords %}" />
+	<meta name="copyright" content="1999-2012, Martin Marek"/>
+	<meta name="author" content="Martin Marek"/>
+	<meta name="robots" content="index, follow" />
+
+    {% block meta-title %}<meta name="title" content="čarabaňa.cz"/>{% endblock meta-title %}
+    {% block meta-desc %}<meta name="description" content="Ofca v síti"/>{% endblock meta-desc %}
+    {% block meta-opengraph %}
+    <meta property="og:title" content="čarabaňa.cz" />
+    <meta property="og:description" content="Ofca v síti" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="http://carabana.cz" />
+    <meta property="og:image" content="http://carabana.cz/static/img/carabana.png" />
+    {% endblock meta-opengraph %}{% block meta-twitter %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@76house">
+    {% endblock meta-twitter %}
+
+    <link href="{% static 'css/screen.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/print.css' %}" media="print" rel="stylesheet" type="text/css" />
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" />
+
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- jQuery lib (Google CDN / local backup) ============================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+    <!--script src="{% static 'js/jquery-3.7.1.min.js' %}" type="text/javascript"></script-->
+
+    <!-- Animations ========================================================== -->
+    <script src="{% static 'js/carabana.js' %}" type="text/javascript"></script>
+    
+    {% block headscripts %}{% endblock headscripts %}
+  </head>
+
+  <body>
+
+    <div id="bg-top"><div id="bg-bottom">
+      <div id="wrapper">
+
+        <header>
+
+          <!-- PAGE HEADER begin =========================================== --> 
+
+          <div id="topnav">
+
+            <!--div class="tab right">
+              {% block pretab %}{% endblock pretab %}<a class="rss" href="http://feeds.feedburner.com/carabana" alt="RSS" title="RSS"></a>{% block tab %}<span class="separator"></span><a class="home" href="/" alt="home" title="Domů"></a>{% endblock tab %}
+            </div-->
+
+          </div>
+
+          <h1>čarabaňa.cz - ofca v síti</h1>
+          <a id="carabana-logo-link" {% block logolink %}href="/"{% endblock logolink %} title="Letííme!">
+          <div id="carabana-logo" href="http://www.carabana.cz/" alt="čarabaňa.cz - ofca v síti">
+            <div id="light"></div><div id="city"></div><div id="tube"></div><div id="village"></div><div id="sun"></div><div id="ofca"></div>
+          </div>
+          </a>
+
+          <!-- PAGE HEADER end ============================================= --> 
+
+        </header>
+
+        <section id="content">
+          <article>
+
+          {% block article %}{% endblock article %}
+          {% block columns %}{% endblock columns %}
+
+            <div class="clear">&nbsp;</div>
+
+          </article>
+        </section>
+
+        <footer>
+
+          <!-- FOOTER begin ================================================ --> 
+
+          <div class="ofca-xicht"></div>
+          <div class="impress">
+            <a href="/"><div class="carabana"></div></a>
+            <div class="info">
+              <div class="cz">OFCA V SÍTI / Odpovědný vedoucí Martin Marek /<br/>Zabaleno do hřejivé vlny léta Páně 2012</div>
+              <div class="en">SHEEP IN THE NET / Crafted by Martin Marek /<br/>Packed into warm wool 2012 A.D.</div>
+            </div>
+            <!--div class="contacts">
+              <a class="twitter" title="twitter" href="http://twitter.com/76house"></a>
+              <a class="linkedin" title="linked in" href="http://cz.linkedin.com/in/martinmarek76"></a>
+            </div-->
+          </div>
+          <div class="clear">&nbsp;</div>
+
+          <!-- FOOTER end ================================================== --> 
+
+        </footer>
+
+      </div>
+    </div></div>
+
+<!-- place for tracking code --> 
+
+  </body>
+
+</html>
+

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load truncate_paragraph %}
+{% load tag_list %}
+
+{% block title %}{% if article %}{{ article.title|safe }} / {% endif %}čarabaňa.cz{% endblock title %}
+{% block keywords %}{% if article.keywords %}{{ article.keywords }}{% else %}blog{% endif %}{% endblock keywords %}
+
+{% if article %}
+  {% block meta-title %}<meta name="title" content="{{ article.title|safe }}"/>{% endblock meta-title %}
+  {% block meta-desc %}<meta name="description" content="{{ article.perex|safe }}"/>{% endblock meta-desc %}
+    {% block meta-opengraph %}
+    <meta property="og:title" content="{{ article.title|safe }}" />
+    <meta property="og:description" content="{{ article.perex_html|truncate_paragraph|striptags }}" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:url" content="http://carabana.cz{{ article.get_absolute_url }}" />
+    <meta property="og:image" content="http://carabana.cz{{ article.drawing_url }}" />
+    {% endblock meta-opengraph %}
+
+    {% block headscripts %}
+    {% endblock headscripts %}
+
+{% endif %}
+
+
+{% block tab %}{{ block.super }}{% if is_draft %}<span class="separator"></span> <a href="/admin/blog/article/{{ article.id }}">DRAFT</a>{% endif %}{% endblock tab %}
+
+{% block article %}
+    <div class="main wide">
+
+      <!-- MAIN CONTENT begin ====================================== --> 
+
+      {% if article %}
+
+          <h2>{{ article.title|safe }}</h2>
+          <div class="date">{{ article.date_published|date:"DATE_FORMAT" }}{% if article.enable_comments %}&nbsp;&nbsp;<a href="#comments" alt="komentáře" title="komentáře"><span class="comment"></span></a>{% endif %}</div>
+
+          {{ article.perex_html|safe }}
+          {{ article.body_html|safe }}
+
+          <div class="share">
+
+            {{ article.taglist|tag_list }}
+
+         </div>
+
+      {% else %}
+          <p>&nbsp;</p>
+          <h2>Béé, nic tady není!</h2>
+          <div class="date">MRKNĚTE NA <a href="/">HLAVNÍ STRÁNKU</a></div>
+          <p>&nbsp;</p>
+      {% endif %}
+
+      <!-- MAIN CONTENT end ======================================== --> 
+
+    </div>
+{% endblock article %}
+
+{% block columns %}
+
+    {% if articles %}
+    <hr/>
+
+    <p class="tags">/&nbsp;{% if is_similar %}Podobné články{% else %}Další články{% endif %}&nbsp;/</p>
+
+    <!-- COLUMNS begin ============================================= --> 
+
+    {% for a in articles %}
+    <a class="{% if forloop.counter == 4 %}lastcolumn {% endif %}column" href="{{ a.get_absolute_url }}">
+      <h2>{{ a.title|safe }}</h2>
+        {% if a.drawing %}<img src="{{ a.drawing_url }}" title="{{ a.title|safe }}" />{% endif %}
+        {{ a.perex_html|truncate_paragraph|safe }}
+    </a>
+    {% endfor %}
+
+    <!-- COLUMNS end =============================================== --> 
+
+    {% endif %}
+{% endblock columns %}
+
