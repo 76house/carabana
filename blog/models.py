@@ -67,7 +67,7 @@ class Picture(models.Model):
     def thumbnail(self):
         if self.picture:
             return format_html('<a href="%s"><img style="max-width: 300px; max-height: 300px; " src="%s" /></a>' \
-                % (self.url(), self.url(Picture.PICTURE_SMALL) ))
+                % (settings.MEDIA_URL + self.url(), settings.MEDIA_URL + self.url(Picture.PICTURE_SMALL) ))
         return "No image"
 
     thumbnail.short_description = 'Thumbnail'
@@ -84,7 +84,7 @@ class Picture(models.Model):
 
         exif = {}
 
-        filename = "." + self.picture.url
+        filename = self.picture.url.replace(settings.MEDIA_URL, settings.MEDIA_ROOT + '/')
         basename, ext = os.path.splitext(filename)
         im = Image.open(filename)
 
@@ -266,8 +266,6 @@ class Article(models.Model):
             self.perex = self.perex.replace(picture_tag, tag_replace)
             self.body = self.body.replace(picture_tag, tag_replace)
             temp_body = temp_body.replace(picture_tag, tag_replace)
-
-            print(self.body)
 
             if can_be_link:
                 # convert ![image-link http://example.com] to <a href="http://example.com"><img src="image_url"></a>
