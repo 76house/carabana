@@ -53,6 +53,7 @@ $(document).ready(function()
     });
     
 
+    /*
     $('#carabana-logo #ofca').click(function(e) {
     
         width = $('#wrapper').width();
@@ -76,6 +77,7 @@ $(document).ready(function()
 
         updateAnimation();
     });
+    */
 
 
     $(window).resize(function() {
